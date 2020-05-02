@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="italian">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Maurizio Tomasi">
+  <title>I segreti del C++</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reset.css">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">I segreti del C++</h1>
+  <p class="author">Maurizio Tomasi</p>
+  <p class="date">Università degli Studi di Milano</p>
+</section>
+
+<section id="funzionamento-di-un-compilatore" class="slide level1">
+<h1>Funzionamento di un compilatore</h1>
+<ul>
+<li>Un compilatore è un <em>traduttore</em>, che converte un linguaggio in un altro.</li>
+<li>I compilatori C++ come <code>g++</code> e <code>clang++</code> convertono il C++ in <em>linguaggio macchina</em>.</li>
+<li>Per capire come funziona un compilatore, bisogna comprendere il linguaggio macchina delle CPU!</li>
+</ul>
+</section>
+<section id="cosa-fa-la-cpu" class="slide level1">
+<h1>Cosa fa la CPU</h1>
+<ul>
+<li>Esegue sequenze di istruzioni</li>
+<li>Accede a periferiche attraverso dei <em>bus</em></li>
+<li><strong>Accede alla memoria</strong>: fondamentale!</li>
+</ul>
+</section>
+<section id="tipi-di-memoria" class="slide level1">
+<h1>Tipi di memoria</h1>
+<ul>
+<li><strong>Memoria volatile</strong>:
+<ul>
+<li>Registro (qualche kB, 64 bit/ciclo)</li>
+<li>Cache (128 kB–128 MB, 40-700 GB/s)</li>
+<li>RAM (10 GB/s)</li>
+</ul></li>
+<li><strong>Memoria permanente</strong>:
+<ul>
+<li>Disco fisso SSD (1 GB/s)</li>
+<li>Disco fisso HDD (120 MB/s)</li>
+</ul></li>
+</ul>
+</section>
+<section id="memoria-volatile" class="slide level1">
+<h1>Memoria volatile</h1>
+<dl>
+<dt><strong>Registri</strong></dt>
+<dd><p>Attraverso identificativi come <code>ebp</code>, <code>rsp</code>, <code>eax</code>… (interi), <code>xmm0</code>, <code>xmm1</code>, … (floating point)</p>
+</dd>
+<dt><strong>Cache</strong></dt>
+<dd><p>Esclusiva pertinenza della CPU!</p>
+</dd>
+<dt><strong>RAM</strong></dt>
+<dd><p><strong>RAM</strong>: la CPU richiede il dato al bus della memoria specificando l’indirizzo numerico</p>
+</dd>
+</dl>
+</section>
+<section id="section" class="slide level1">
+<h1></h1>
+<table>
+<tbody>
+<tr class="odd">
+<td><img data-src="images/criceto.jpg" height="128" /></td>
+<td style="text-align: left;">Registri (6 kB)</td>
+<td><img data-src="images/concorde.jpg" height="128" /></td>
+</tr>
+<tr class="even">
+<td><img data-src="images/umbria.png" height="128" /></td>
+<td style="text-align: left;">RAM (8 GB)</td>
+<td><img data-src="images/corridori.jpg" height="128" /></td>
+</tr>
+<tr class="odd">
+<td><img data-src="images/terra.jpg" height="128" /></td>
+<td style="text-align: left;">HD SSD da 1 TB</td>
+<td><img data-src="images/passeggiata.jpg" height="128" /></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="assembler" class="slide level1">
+<h1>Assembler</h1>
+<ul>
+<li><p>Il linguaggio macchina è espresso come una sequenza di bit: <code>0110101110…</code></p></li>
+<li><p>Può essere «traslitterato» partendo dal linguaggio assembler (usando compilatori come <a href="https://www.nasm.us/">NASM</a> e <a href="https://yasm.tortall.net/">YASM</a>):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">movapd</span> <span class="kw">xmm4</span>, <span class="kw">xmm1</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">mulsd</span> <span class="kw">xmm5</span>, <span class="kw">xmm0</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">mulsd</span> <span class="kw">xmm4</span>, <span class="kw">xmm1</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="bu">jle</span> .L10</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="bu">movapd</span> <span class="kw">xmm6</span>, <span class="kw">xmm5</span></span></code></pre></div></li>
+<li><p>CPU diverse hanno convenzioni diverse per il linguaggio assembler</p></li>
+</ul>
+</section>
+<section id="cosa-sa-fare-la-cpu" class="slide level1">
+<h1>Cosa sa fare la CPU?</h1>
+<ul>
+<li>Calcoli elementari su interi</li>
+<li>Calcoli elementari su floating-point</li>
+<li>Confronti</li>
+<li>Istruzioni di salto (<code>goto</code>)</li>
+<li>Copia di dati da RAM a registri e viceversa</li>
+<li>Comunicazione attraverso i bus: hard disk, scheda grafica, tastiera, mouse, porte ethernet, etc.</li>
+</ul>
+</section>
+<section id="cosa-non-sa-fare-la-cpu" class="slide level1">
+<h1>Cosa <em>non</em> sa fare la CPU?</h1>
+<ul>
+<li>Cicli <code>for</code></li>
+<li>Operazioni matematiche complesse (es., <code>2 * x + y</code>)</li>
+<li>Gestione di dati complessi (array, stringhe, etc.)</li>
+<li>Allocazione di memoria con <code>new</code> e <code>delete</code></li>
+<li>Funzioni con parametri</li>
+<li>Classi</li>
+<li>Molto altro!</li>
+</ul>
+</section>
+<section id="section-1" class="slide level1">
+<h1></h1>
+<ul>
+<li><p>In passato, per molti computer era necessario programmare direttamente in Assembler. Solo pochi pionieri offrivano linguaggi ad alto livello, come il Commodore 64:</p>
+<p><img data-src="./images/commodore64.jpg" style="width:40.0%" /></p></li>
+<li><p>Ma già dagli anni ’50 si erano sviluppati linguaggi <em>ad alto livello</em>, come <strong>Lisp</strong> e <strong>Fortran</strong></p></li>
+</ul>
+</section>
+<section id="compilatori" class="slide level1">
+<h1>Compilatori</h1>
+<ul>
+<li>Un compilatore traduce il codice di un linguaggio ad alto livello (come il C++) in codice macchina</li>
+<li>Trasforma cicli <code>for</code> in cicli che usano <code>goto</code></li>
+<li>Decide autonomamente quando usare i registri e quando la RAM</li>
+<li>Per ogni architettura è necessario che il compilatore sappia generare l’assembler corrispondente. Le architetture più diffuse sono:
+<ul>
+<li>x86_64: usata nella maggior parte dei desktop e dei laptop</li>
+<li>ARM: usata soprattutto nei cellulari e nei tablet, ma anche in console di gioco (Nintendo Switch) e alcuni laptop (Chromebooks)</li>
+</ul></li>
+</ul>
+</section>
+<section id="esplorare-il-codice-assembler" class="slide level1">
+<h1>Esplorare il codice assembler</h1>
+<ul>
+<li>Molti compilatori possono produrre file di testo con l’assembler generato, prima della traduzione in linguaggio macchina</li>
+<li>Se usate <code>gcc</code> e <code>clang</code>, esiste il flag <code>-S</code></li>
+<li>Potete fare esperimenti online sul sito <a href="https://godbolt.org">godbolt.org</a> (che ho usato per le prossime slide)</li>
+</ul>
+</section>
+<section id="esempio-un-ciclo-for" class="slide level1">
+<h1>Esempio: un ciclo <code>for</code></h1>
+<table width="100%">
+<tr>
+<td>
+<strong>C++</strong>
+</td>
+<td>
+<strong>Assembler</strong> (x86_64)
+</td>
+</tr>
+<tr>
+<td>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>{</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="co">// loop body</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>}</span></code></pre></div>
+</td>
+<td>
+<div class="sourceCode" id="cb3"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb3-1"><a href="#cb3-1"></a>    <span class="bu">mov</span>  <span class="kw">ecx</span>, [n]</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="bu">xor</span>  <span class="kw">eax</span>, <span class="kw">eax</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">LoopTop:</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="bu">cmp</span>  <span class="kw">eax</span>, <span class="kw">ecx</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="bu">jge</span>  LoopEnd</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="co">; (loop body: DO NOT MODIFY ecx!)</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="bu">add</span>  <span class="kw">eax</span>, <span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="bu">jmp</span>  LoopTop</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="fu">LoopEnd:</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="co">; (etc.)</span></span></code></pre></div>
+</td>
+</tr>
+</table>
+</section>
+<section id="uso-di-registri" class="slide level1">
+<h1>Uso di registri</h1>
+<ul>
+<li><p>Per ogni dato, il compilatore deve decidere se usare un registro o la RAM</p></li>
+<li><p>Trovare la scelta ottimale è molto difficile (vedi <a href="https://en.wikipedia.org/wiki/Register_allocation">Wikipedia</a>)</p></li>
+<li><p>In passato il C/C++ offriva la parola chiave <code>register</code> (oggi deprecata):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a><span class="dt">void</span> fn(<span class="dt">void</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="dt">int</span> a, b;</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="dt">register</span> <span class="dt">int</span> i; <span class="co">/* Put this variable in a register, if possible */</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="co">/* … */</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>}</span></code></pre></div></li>
+</ul>
+</section>
+<section id="frattali-di-julia" class="slide level1">
+<h1>Frattali di Julia</h1>
+</section>
+<section id="section-2" class="slide level1">
+<h1></h1>
+<p><img data-src="images/julia_fractal.png" height="512" /></p>
+</section>
+<section id="section-3" class="slide level1">
+<h1></h1>
+<ul>
+<li>Un <a href="https://en.wikipedia.org/wiki/Julia_set">frattale di Julia</a> <span class="math inline">J_c</span> è un sottoinsieme del piano complesso <span class="math inline">\mathbb{C}</span>, parametrizzato da <span class="math inline">c \in \mathbb{C}</span>.</li>
+<li>Un punto <span class="math inline">z \in \mathbb{C}</span> appartiene a <span class="math inline">J_c</span> sse <span class="math display">\lim_{n\rightarrow\infty} \left|f^{(n)}(z)\right| &lt; \infty,</span> dove <span class="math inline">f^{(n)}</span> indica la funzione <span class="math inline">f</span> composta <span class="math inline">n</span> volte: <span class="math inline">f(f(f(\ldots)))</span>, e <span class="math inline">f(z) = z^2 + c</span>.</li>
+<li>Un teorema afferma che, se <span class="math inline">\exists n: \left|f^{(n)}(z)\right| &gt; R</span>, con <span class="math inline">R^2 - R \geq \left|c\right|</span>, allora il limite sopra diverge (quindi <span class="math inline">J_c</span> è <em>limitato</em>).</li>
+</ul>
+</section>
+<section id="frattali-di-julia-in-c" class="slide level1">
+<h1>Frattali di Julia in C++</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1"></a><span class="dt">int</span> julia(<span class="dt">double</span> startx, <span class="dt">double</span> starty, <span class="dt">double</span> cx, <span class="dt">double</span> cy, <span class="dt">int</span> max_iter = <span class="dv">1024</span>) {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="dt">int</span> iter = <span class="dv">0</span>;</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="dt">double</span> zx = startx, zy = starty;</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">while</span> ((zx * zx + zy * zy &lt; <span class="dv">4</span>) &amp;&amp; (iter &lt; max_iter)) {</span>
+<span id="cb5-5"><a href="#cb5-5"></a>        <span class="dt">double</span> tmp = zx * zx - zy * zy;</span>
+<span id="cb5-6"><a href="#cb5-6"></a>        zy = <span class="dv">2</span> * zx * zy + cy;</span>
+<span id="cb5-7"><a href="#cb5-7"></a>        zx = tmp + cx;</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>        iter++;</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    }</span>
+<span id="cb5-11"><a href="#cb5-11"></a></span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="cf">return</span> (iter == max_iter) ? -<span class="dv">1</span> : iter;</span>
+<span id="cb5-13"><a href="#cb5-13"></a>}</span></code></pre></div>
+</section>
+<section id="codice-assembler--o0" class="slide level1">
+<h1>Codice assembler (<code>-O0</code>)</h1>
+<table width="100%">
+<tr>
+<td>
+<strong>C++</strong>
+</td>
+<td>
+<strong>Assembler</strong>
+</td>
+</tr>
+<tr>
+<td>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1"></a>zy = <span class="dv">2</span> * zx * zy + cy;</span></code></pre></div>
+</td>
+<td>
+<div class="sourceCode" id="cb7"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">movsd</span> <span class="kw">xmm0</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-24</span>]  <span class="co">; xmm0 = zx</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">addsd</span> <span class="kw">xmm0</span>, <span class="kw">xmm0</span>                <span class="co">; xmm0 += xmm0</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">mulsd</span> <span class="kw">xmm0</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-16</span>]  <span class="co">; xmm0 *= zy</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="bu">addsd</span> <span class="kw">xmm0</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-64</span>]  <span class="co">; xmm0 += cy</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="bu">movsd</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-16</span>], <span class="kw">xmm0</span>  <span class="co">; zy = xmm0</span></span></code></pre></div>
+</td>
+</tr>
+</table>
+<p>Con <code>-O2</code> il codice si complica, perché il compilatore cerca di usare più i registri, come <code>xmm0</code>, che gli accessi alla memoria RAM, come <code>[rbp-16]</code>.</p>
+</section>
+<section id="section-4" class="slide level1">
+<h1></h1>
+<p><img data-src="./images/asm_instruction_table.png" /></p>
+</section>
+<section id="section-5" class="slide level1">
+<h1></h1>
+<p><img data-src="images/julia_fractal.png" data-valign="bottom" height="200" /></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Flag</th>
+<th style="text-align: left;">Tempo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>-O0</code></td>
+<td style="text-align: left;">0.23 s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>-O1</code></td>
+<td style="text-align: left;">0.13 s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>-O2</code></td>
+<td style="text-align: left;">0.11 s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>-O3</code></td>
+<td style="text-align: left;">0.11 s</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="produrre-codice-assembler" class="slide level1">
+<h1>Produrre codice assembler</h1>
+<ul>
+<li>Il compilatore <code>g++</code> si basa sul compilatore <a href="https://gcc.gnu.org/">GCC</a>, che implementa una serie di algoritmi per capire quale sia il modo più performante di usare i registri e ordinare le istruzioni</li>
+<li>Il compilatore <code>clang</code> si basa sulla libreria <a href="https://llvm.org/">LLVM</a>, che prende in input una descrizione «ad alto livello» della sequenza di operazioni da eseguire e le traduce in codice assembler ottimizzato</li>
+</ul>
+</section>
+<section id="altri-linguaggi" class="slide level1">
+<h1>Altri linguaggi</h1>
+<ul>
+<li>Il compilatore <a href="https://gcc.gnu.org/">GCC</a> supporta molti linguaggi oltre al C++, usando lo stesso generatore di codice assembler: C e Objective-C (<code>gcc</code>), <a href="https://wiki.dlang.org/GDC">D</a> (<code>gdc</code>), <a href="https://gcc.gnu.org/onlinedocs/gcc-9.3.0/gccgo/">Go</a> (<code>gccgo</code>), <a href="https://gcc.gnu.org/onlinedocs/gcc-9.3.0/gfortran/">Fortran</a> (<code>gfortran</code>), <a href="https://gcc.gnu.org/onlinedocs/gcc-9.3.0/gnat_ugn/">Ada</a> (<code>gnat</code>).</li>
+<li>La libreria LLVM è impiegata da molti compilatori: <a href="https://clang.llvm.org/">clang</a> (C/Objective-C/C++), <a href="https://wiki.dlang.org/LDC">LDC</a> (D), <a href="https://github.com/flang-compiler/flang">flang</a> (Fortran), <a href="https://crystal-lang.org/">Crystal</a>, <a href="https://swift.org/">Swift</a>, <a href="https://www.rust-lang.org/">Rust</a>, <a href="https://ziglang.org/">Zig</a>, <a href="https://julialang.org/">Julia</a></li>
+<li>Altri compilatori implementano un proprio generatore di codice assembler: <a href="https://freepascal.org/">FreePascal</a>, <a href="https://dlang.org/">DMD</a> (D), <a href="https://golang.org/">Go</a>, <a href="https://visualstudio.microsoft.com/vs/">Visual Studio</a> (C/C++), etc.</li>
+<li>Alcuni linguaggi, come <a href="https://nim-lang.org/">Nim</a>, producono codice C, che va poi compilato da un compilatore C.</li>
+</ul>
+</section>
+<section id="cross-compilazione" class="slide level1">
+<h1>Cross-compilazione</h1>
+<ul>
+<li>In passato l’architettura dominante per le CPU nei computer era la Intel/AMD, denominata x86 (32-bit) o x86_64 (64-bit)</li>
+<li>Con la diffusione di smartphone e tablet, l’architettura ARM ha avuto un’enorme diffusione</li>
+<li>È diventato importante compilare codici per più architetture in modo facile e veloce</li>
+<li>Un <strong>cross-compilatore</strong> permette di produrre codice assembler/macchina per un’architettura diversa da quella su cui il compilatore funziona</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1440,
+        height: 810,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

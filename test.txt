@@ -1,0 +1,8 @@
+# This is a comment
+#
+# sensor temperature
+upper_flange 301.76
+lower_flange   270.1
+  horn         290.81
+  
+detector        85.3

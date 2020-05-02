@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="italian">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Maurizio Tomasi">
+  <title>Il linguaggio Python</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://revealjs.com/css/reset.css">
+  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://revealjs.com/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Il linguaggio Python</h1>
+  <p class="author">Maurizio Tomasi</p>
+  <p class="date">Università degli Studi di Milano</p>
+</section>
+
+<section id="lapproccio-di-python" class="slide level1">
+<h1>L’approccio di Python</h1>
+<ul>
+<li>Python nasce all’inizio degli anni 90, 20 anni dopo il C e 7 dopo il C++</li>
+<li>Quando nasce il Python c’è la consapevolezza che i computer saranno sempre più veloci: programmi «lenti» sono sempre meno un problema</li>
+<li>L’approccio di Python è completamente diverso rispetto al C++: non è più <strong>compilato</strong>, ma <strong>interpretato</strong></li>
+<li>Oggi la versione più diffusa è la 3: evitate la 2!</li>
+<li>In campo scientifico si usa molto <strong>Anaconda Python</strong></li>
+</ul>
+</section>
+<section id="frattali-di-julia-in-python" class="slide level1">
+<h1>Frattali di Julia in Python</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> julia(z, c, maxiter<span class="op">=</span><span class="dv">256</span>):</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    iteridx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">while</span> (z.real<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> z.imag<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span>) <span class="kw">and</span> (iteridx <span class="op">&lt;</span> maxiter):</span>
+<span id="cb1-4"><a href="#cb1-4"></a>        z <span class="op">=</span> z <span class="op">*</span> z <span class="op">+</span> c</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        iteridx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>        </span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="cf">if</span> iteridx <span class="op">==</span> maxiter:</span>
+<span id="cb1-8"><a href="#cb1-8"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-10"><a href="#cb1-10"></a>        <span class="cf">return</span> iteridx</span></code></pre></div>
+</section>
+<section id="confronto-tra-c-e-python" class="slide level1">
+<h1>Confronto tra C++ e Python</h1>
+<ul>
+<li>Il codice Python per generare un frattale di Julia è molto più semplice del codice C++</li>
+<li>Il programma Python richiede <strong>16 s</strong> per generare un’immagine 800×800 (in C++, 0.1 secondi!)</li>
+</ul>
+</section>
+<section id="vantaggi-di-python-rispetto-al-c" class="slide level1">
+<h1>Vantaggi di Python rispetto al C++</h1>
+<ul>
+<li>Si esegue il codice senza bisogno di compilare prima → più facile fare il debug</li>
+<li>Non è necessario dichiarare variabili → codice più breve e veloce da scrivere</li>
+<li>Non si usano i file header (<code>.h</code>) → meno file da gestire</li>
+<li>Non si usano i Makefile → maggiore semplicità</li>
+<li>Niente puntatori → minore possibilità di crash</li>
+</ul>
+</section>
+<section id="svantaggi-di-python" class="slide level1">
+<h1>Svantaggi di Python</h1>
+<ul>
+<li>Se le variabili non hanno tipo, sono possibili molti errori</li>
+<li>Gli errori capitano durante l’esecuzione, non durante la compilazione</li>
+<li><strong>I programmi sono molto più lenti del C++!</strong></li>
+</ul>
+</section>
+<section id="velocità-di-python" class="slide level1">
+<h1>Velocità di Python</h1>
+<ul>
+<li>Python non crea programmi nel linguaggio macchina della CPU, ma nell’assembler di una <strong>macchina virtuale</strong> (la «Python virtual machine»)</li>
+<li>Questo codice non viene eseguito dalla CPU ma da un programma C, che lo converte <strong>in fase di esecuzione</strong> in una sequenza di istruzioni in linguaggio macchina</li>
+<li>Vediamo come funziona in un esempio pratico</li>
+</ul>
+</section>
+<section id="section" class="slide level1">
+<h1></h1>
+<p>In C++, una istruzione come <code>x = a + b</code> può essere convertita in Assembler così:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">mov</span> <span class="kw">rax</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-24</span>] <span class="co">; rax = a</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">add</span> <span class="kw">rax</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-16</span>] <span class="co">; rax += b</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">mov</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-8</span>], <span class="kw">rax</span>  <span class="co">; x = rax</span></span></code></pre></div>
+<p>oppure così:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">movsd</span> <span class="kw">xmm0</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-24</span>]  <span class="co">; xmm0 = a</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">movsd</span> <span class="kw">xmm1</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-16</span>]  <span class="co">; xmm1 = b</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">addsd</span> <span class="kw">xmm0</span>, <span class="kw">xmm1</span>                <span class="co">; xmm0 += xmm1</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">movsd</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-8</span>], <span class="kw">xmm0</span>   <span class="co">; x = xmm0</span></span></code></pre></div>
+<p>a seconda che le variabili <code>a</code>, <code>b</code> e <code>x</code> siano <code>int</code> o <code>double</code>.</p>
+</section>
+<section id="section-1" class="slide level1">
+<h1></h1>
+<p>Consideriamo ora questo programma Python:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> add(a, b):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">print</span>(add(<span class="dv">1</span>, <span class="dv">3</span>))      <span class="co"># Result: 4</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(add(<span class="fl">1.0</span>, <span class="fl">3.0</span>))  <span class="co"># Result: 4.0</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(add(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))  <span class="co"># Result: &#39;ab&#39;</span></span></code></pre></div>
+<p>Come può Python compilare in un linguaggio assembler la funzione <code>add</code>, visto che la somma può assumere significati diversi?</p>
+</section>
+<section id="compilazione-e-python" class="slide level1">
+<h1>Compilazione e Python</h1>
+<ul>
+<li><p>In Python, l’istruzione <code>x = a + b</code> viene <strong>sempre</strong> compilata così:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">load_fast</span>   0 <span class="co"># 0 stands for a</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">load_fast</span>   1 <span class="co"># 1 stands for b</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="ex">binary_add</span>    <span class="co"># sum the last two nums</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="ex">store_fast</span>  2 <span class="co"># 2 stands for x</span></span></code></pre></div></li>
+<li><p>Questi comandi assumono che ci sia un vettore di elementi (chiamato <em>stack</em>) che venga mantenuto durante l’esecuzione, e che <code>load_fast</code> e <code>store_fast</code> aggiungano e tolgano elementi in coda al vettore.</p></li>
+<li><p>Istruzioni come <code>binary_add</code> tolgono uno o più elementi in coda al vettore, fanno un’operazione su di essi, e mettono il risultato in coda al vettore</p></li>
+</ul>
+</section>
+<section id="section-2" class="slide level1">
+<h1></h1>
+<p>Per eseguire il file <code>test.py</code>, occorre sempre chiamare <code>python3</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">python3</span> test.py</span></code></pre></div>
+<p>Il programma <code>python3</code> è scritto in C, ed è più o meno fatto così:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">const</span> <span class="dt">char</span> argv[argc + <span class="dv">1</span>]) {</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    initialize();</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a>    PyProgram * prog = compile_to_bytecode(argc, argv);</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="cf">while</span>(<span class="dv">1</span>) { <span class="co">/* Run commands in sequence, like a real CPU */</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>        PyCommand * command = get_next_bytecode(prog);</span>
+<span id="cb7-7"><a href="#cb7-7"></a>        <span class="cf">if</span> (! run_command(command))</span>
+<span id="cb7-8"><a href="#cb7-8"></a>            <span class="cf">break</span>;</span>
+<span id="cb7-9"><a href="#cb7-9"></a>    }</span>
+<span id="cb7-10"><a href="#cb7-10"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb7-11"><a href="#cb7-11"></a>}</span></code></pre></div>
+</section>
+<section id="cosa-fa-run_command" class="slide level1">
+<h1>Cosa fa <code>run_command</code></h1>
+<ul>
+<li><p>La funzione <code>run_command</code> esegue <em>una</em> istruzione, e ogni volta che viene invocata deve capire come operare in base al tipo di dato.</p></li>
+<li><p>Verosimilmente, a seconda del comando che deve eseguire, <code>run_command</code> chiama una funzione C che gestisce l’esecuzione di quel particolare comando (<code>load_fast</code>, <code>store_fast</code>, <code>binary_add</code>, …)</p></li>
+</ul>
+</section>
+<section id="section-3" class="slide level1">
+<h1></h1>
+<p>Questa è una possibile implementazione per <code>binary_add</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1"></a><span class="dt">void</span> binary_add(PyObject * val1,</span>
+<span id="cb8-2"><a href="#cb8-2"></a>                PyObject * val2,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>                PyObject * result) {    </span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="cf">if</span> (isinteger(val1) &amp;&amp; isinteger(val2)) {</span>
+<span id="cb8-5"><a href="#cb8-5"></a>        <span class="co">/* Sum two integers */</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>        <span class="dt">int</span> v1 = get_integer(val1);</span>
+<span id="cb8-7"><a href="#cb8-7"></a>        <span class="dt">int</span> v2 = get_integer(val2);</span>
+<span id="cb8-8"><a href="#cb8-8"></a>        result.set_type(PY_INTEGER)</span>
+<span id="cb8-9"><a href="#cb8-9"></a>        result.set_integer(v1 + v2);</span>
+<span id="cb8-10"><a href="#cb8-10"></a>    } <span class="cf">else</span> <span class="cf">if</span> (isreal(val1) &amp;&amp; isreal(val2)) {</span>
+<span id="cb8-11"><a href="#cb8-11"></a>        <span class="co">/* Sum two floating-point numbers */</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a>    } <span class="cf">else</span> {</span>
+<span id="cb8-13"><a href="#cb8-13"></a>        <span class="co">/* ... */</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>    }</span>
+<span id="cb8-15"><a href="#cb8-15"></a>}</span></code></pre></div>
+</section>
+<section id="linguaggi-interpretati" class="slide level1">
+<h1>Linguaggi interpretati</h1>
+<ul>
+<li>Di per sé, un linguaggio interpretato non deve essere necessariamente più lento di un linguaggio compilato</li>
+<li>Controesempi: in certi casi, Java (che usa una virtual machine come Python) è più veloce del C++</li>
+<li>Molte implementazioni dei linguaggi LISP e Scheme (interpretati, con tipi dinamici come Python) sono ordini di grandezza più veloci di Python</li>
+<li>Esistono compilatori Python poco usati (es., pypy, jython) che producono codice più veloce</li>
+</ul>
+</section>
+<section id="comodità-di-python" class="slide level1">
+<h1>Comodità di Python</h1>
+<ul>
+<li>Python non viene certo usato per scrivere codice <em>veloce</em>, ma per scrivere codice <strong>rapidamente</strong>!</li>
+<li>A differenza del C++, il linguaggio supporta molte funzionalità di alto livello</li>
+</ul>
+</section>
+<section id="esempio" class="slide level1">
+<h1>Esempio</h1>
+<ul>
+<li><p>Supponiamo di avere un file, <code>test.txt</code>, contenente questi dati:</p>
+<pre><code># This is a comment
+#
+# sensor temperature
+upper_flange 301.76
+lower_flange   270.1
+  horn         290.81
+
+detector        85.3</code></pre></li>
+<li><p>Esso contiene delle temperature registrate da termometri installati in uno strumento</p></li>
+<li><p>Vogliamo scrivere un programma che stampi a video i nomi dei sensori, ordinati secondo la temperatura dal più freddo al più caldo. Il codice deve ignorare spazi, commenti e linee vuote</p></li>
+</ul>
+</section>
+<section id="soluzione-dellesercizio" class="slide level1">
+<h1>Soluzione dell’esercizio</h1>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;test.txt&quot;</span>, <span class="st">&quot;rt&quot;</span>) <span class="im">as</span> inpf:</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    lines <span class="op">=</span> [x.strip() <span class="cf">for</span> x <span class="kw">in</span> inpf.readlines()]</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># Remove from &quot;lines&quot; empty lines and comments</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>lines <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> lines <span class="cf">if</span> x <span class="op">!=</span> <span class="st">&quot;&quot;</span> <span class="kw">and</span> x[<span class="dv">0</span>] <span class="op">!=</span> <span class="st">&quot;#&quot;</span>]</span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># Split each line in two</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>pairs <span class="op">=</span> [x.split() <span class="cf">for</span> x <span class="kw">in</span> lines]</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="cf">for</span> sensor, temp <span class="kw">in</span> <span class="bu">sorted</span>(pairs, key<span class="op">=</span><span class="kw">lambda</span> x: <span class="bu">float</span>(x[<span class="dv">1</span>])):</span>
+<span id="cb10-11"><a href="#cb10-11"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>sensor<span class="sc">:20}</span><span class="ss"> (T = </span><span class="sc">{</span>temp<span class="sc">}</span><span class="ss"> K)&quot;</span>)</span></code></pre></div>
+<pre><code>detector             (T = 85.3 K)
+lower_flange         (T = 270.1 K)
+horn                 (T = 290.81 K)
+upper_flange         (T = 301.76 K)</code></pre>
+</section>
+<section id="quando-usare-python" class="slide level1">
+<h1>Quando usare Python?</h1>
+<ul>
+<li>Se un programma non richiede molti calcoli complessi, Python è solitamente la scelta migliore</li>
+<li>Se un programma Python è 100 volte più lento di un programma C++, ma completa sempre l’esecuzione in 0,1 secondi, vale la pena velocizzarlo?</li>
+<li>Scrivere programmi in Python è molto più veloce che scriverli in C++</li>
+</ul>
+</section>
+<section id="python-nel-calcolo-scientifico" class="slide level1">
+<h1>Python nel calcolo scientifico</h1>
+<ul>
+<li>È possibile usare Python per simulazioni Monte Carlo? O per calcoli numerici su milioni di elementi?</li>
+<li>Python permette di invocare funzioni scritte in C e in Fortran</li>
+<li>Negli anni sono state sviluppate librerie Python molto potenti per il calcolo scientifico</li>
+</ul>
+</section>
+<section id="numpy" class="slide level1">
+<h1>NumPy</h1>
+<ul>
+<li>Usa il concetto di broadcast: un’operazione su un array viene propagata su tutti gli elementi dell’array</li>
+<li>La propagazione viene fatta da codice C o Fortran, ed è quindi velocissima</li>
+<li>Si raggiunge una buona velocità, a volte confrontabile con C++ e Fortran</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a>r <span class="op">=</span> np.random.randn(<span class="dv">10_000</span>) <span class="co"># Generate 10.000 random numbers</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(<span class="ss">f&quot;Average value: </span><span class="sc">{r.</span>mean()<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+</section>
+<section id="section-4" class="slide level1">
+<h1></h1>
+<p>Usando NumPy, i cicli <code>for</code> diventano impliciti (sono implementati in <code>numpy.linspace</code> e in <code>numpy.sum</code>, che sono scritti in C/Fortran):</p>
+<table width="100%">
+<tr>
+<td>
+<strong>C++</strong>
+</td>
+<td>
+<strong>Python</strong>
+</td>
+</tr>
+<tr>
+<td>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1"></a><span class="dt">double</span> midpoint(<span class="dt">double</span> fn(<span class="dt">double</span>),</span>
+<span id="cb13-2"><a href="#cb13-2"></a>                <span class="dt">double</span> a, <span class="dt">double</span> b,</span>
+<span id="cb13-3"><a href="#cb13-3"></a>                <span class="dt">int</span> nstep) {</span>
+<span id="cb13-4"><a href="#cb13-4"></a>    <span class="dt">double</span> sum = <span class="fl">0.</span>;</span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="dt">double</span> h = (b - a) / nstep;</span>
+<span id="cb13-6"><a href="#cb13-6"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nstep; ++i) {</span>
+<span id="cb13-7"><a href="#cb13-7"></a>        sum += fn(a + (i + <span class="fl">0.5</span>) * h);</span>
+<span id="cb13-8"><a href="#cb13-8"></a>    }</span>
+<span id="cb13-9"><a href="#cb13-9"></a>    <span class="cf">return</span> sum * h;</span>
+<span id="cb13-10"><a href="#cb13-10"></a>}</span></code></pre></div>
+</td>
+<td>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="im">import</span> numpy</span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">def</span> midpoint(fn, a, b, nsteps):</span>
+<span id="cb14-4"><a href="#cb14-4"></a>    h <span class="op">=</span> (b <span class="op">-</span> a) <span class="op">/</span> nsteps</span>
+<span id="cb14-5"><a href="#cb14-5"></a>    x <span class="op">=</span> numpy.linspace(a <span class="op">+</span> h<span class="op">/</span><span class="dv">2</span>, b <span class="op">-</span> h<span class="op">/</span><span class="dv">2</span>, nsteps)</span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="cf">return</span> numpy.<span class="bu">sum</span>(fn(x)) <span class="op">*</span> h</span></code></pre></div>
+</td>
+</tr>
+</table>
+</section>
+<section id="altre-possibilità" class="slide level1">
+<h1>Altre possibilità</h1>
+<ul>
+<li><a href="https://numba.pydata.org/">Numba</a> è una libreria che compila codice Python in codice assembler, usando LLVM. Supporta anche architetture GPU, ed è molto interessante:
+<ul>
+<li>Semplice da usare</li>
+<li>Il codice prodotto è molto veloce</li>
+<li>Non richiede di usare altri linguaggi oltre a Python</li>
+</ul></li>
+<li><a href="https://www.numfys.net/howto/F2PY/">f2py</a> (parte di NumPy) compila routine in Fortran e in C (usando ad esempio GCC), e le rende chiamabili da Python</li>
+<li><a href="https://cython.org/">Cython</a> è un compilatore che compila una variante di Python in codice C, che viene poi compilato da GCC o <code>clang</code> in linguaggio macchina</li>
+</ul>
+</section>
+<section id="frattali-di-julia-usando-numba" class="slide level1">
+<h1>Frattali di Julia usando Numba</h1>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> numba <span class="im">import</span> njit</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="at">@njit</span>  <span class="co"># This is the *only* change!</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="kw">def</span> julia(z, c, maxiter<span class="op">=</span><span class="dv">256</span>):</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    iteridx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>    <span class="cf">while</span> (z.real <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> z.imag <span class="op">**</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span>) <span class="kw">and</span> (iteridx <span class="op">&lt;</span> maxiter):</span>
+<span id="cb15-7"><a href="#cb15-7"></a>        <span class="co"># Python supports complex numbers</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a>        z <span class="op">=</span> z <span class="op">*</span> z <span class="op">+</span> c</span>
+<span id="cb15-9"><a href="#cb15-9"></a>        iteridx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a></span>
+<span id="cb15-11"><a href="#cb15-11"></a>    <span class="cf">if</span> iteridx <span class="op">==</span> maxiter:</span>
+<span id="cb15-12"><a href="#cb15-12"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-14"><a href="#cb15-14"></a>        <span class="cf">return</span> iteridx</span></code></pre></div>
+</section>
+<section id="frattali-di-julia-usando-numba-1" class="slide level1">
+<h1>Frattali di Julia usando Numba</h1>
+<ul>
+<li><p>Il confronto tra le prestazioni delle tre soluzioni è impressionante:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Linguaggio</th>
+<th style="text-align: left;">Velocità</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Python</td>
+<td style="text-align: left;">16.3 s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Python+Numba</td>
+<td style="text-align: left;">1.1 s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C++</td>
+<td style="text-align: left;">0.1 s</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>L’esempio con Numba può essere ulteriormente ottimizzato, portando il codice a velocità ancora più simili a quelle del C++</p></li>
+</ul>
+</section>
+<section id="librerie-scientifiche-python" class="slide level1">
+<h1>Librerie scientifiche Python</h1>
+<ul>
+<li><a href="https://jupyter.org/">Jupyter</a>: scrittura di codice in modalità interattiva</li>
+<li><a href="https://www.scipy.org/">SciPy</a>: libreria scientifica per integrali, interpolazioni, ricerca di zeri, etc.</li>
+<li><a href="https://pandas.pydata.org/">Pandas</a>: gestione di dati tabellari (carica anche file Excel!)</li>
+<li><a href="https://matplotlib.org/">Matplotlib</a>: creazione di grafici. Guardate gli <a href="https://matplotlib.org/gallery/index.html">esempi</a> per lustrarvi gli occhi</li>
+<li><a href="https://altair-viz.github.io/">Altair</a>: libreria grafica come Matplotlib, più orientata alla data analysis e al machine learning (<a href="https://altair-viz.github.io/gallery/index.html">esempi</a>)</li>
+<li><a href="https://pytorch.org/">PyTorch</a>: libreria di reti neurali per machine learning</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="https://revealjs.com/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1440,
+        height: 810,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
+          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
