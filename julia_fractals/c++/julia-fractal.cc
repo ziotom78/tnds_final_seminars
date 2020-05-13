@@ -2,6 +2,7 @@
 #include <cassert>
 #include <chrono>
 #include <cmath>
+#include <complex>
 #include <cstdio>
 #include <vector>
 
@@ -14,22 +15,24 @@
 namespace fmt = std::format;
 #endif
 
-/* Return -1 if the point (start_x) + (start_y)*i belongs to the
- * Julia set parametrized by (c_x) + (c_y)*i. Otherwise, return
- * the number of iterations needed to find that the limit diverges.
- * Do not iterate more than "max_iter" times, so that the return
- * value of this function is always in the range [-1, max_iter].
- */
-int julia(double start_x, double start_y, double c_x, double c_y,
-          int max_iter) {
-  int iter = 0;
-  double z_x = start_x;
-  double z_y = start_y;
+using namespace std;
 
-  while ((z_x * z_x + z_y * z_y < 4.0) && (iter < max_iter)) {
-    double tmp = z_x * z_x - z_y * z_y;
-    z_y = 2 * z_x * z_y + c_y;
-    z_x = tmp + c_x;
+template <typename T> double abs2(complex<T> z) {
+  return z.real() * z.real() + z.imag() * z.imag();
+}
+
+/* Return -1 if the point "start" belongs to the Julia set
+ * parametrized by "c". Otherwise, return the number of iterations
+ * needed to find that the limit diverges. Do not iterate more than
+ * "max_iter" times, so that the return value of this function is
+ * always in the range [-1, max_iter].
+ */
+int julia(complex<double> start, complex<double> c, int max_iter) {
+  int iter = 0;
+  complex<double> z = start;
+
+  while (abs2(z) < 4.0 && iter < max_iter) {
+    z = z * z + c;
 
     iter++;
   }
@@ -59,16 +62,16 @@ double linspace(int val, int max, double out_min, double out_max) {
  * The size of the matrix is num_of_cols * num_of_rows, and
  * it is saved in the array "image_matrix" (row-first order).
  */
-void juliaset(double c_x, double c_y, double x0, double x1, int num_of_cols,
+void juliaset(complex<double> c, double x0, double x1, int num_of_cols,
               double y0, double y1, int num_of_rows, int max_iter,
               int *image_matrix) {
   int idx = 0;
   for (int row = 0; row < num_of_rows; ++row) {
     for (int col = 0; col < num_of_cols; ++col) {
-      double z_x = linspace(col, num_of_cols, x0, x1);
-      double z_y = linspace(row, num_of_rows, y0, y1);
+      complex<double> z(linspace(col, num_of_cols, x0, x1),
+                        linspace(row, num_of_rows, y0, y1));
 
-      image_matrix[idx++] = julia(z_x, z_y, c_x, c_y, max_iter);
+      image_matrix[idx++] = julia(z, c, max_iter);
     }
   }
 }
@@ -78,14 +81,13 @@ int main(void) {
   const int height = 800;
   const int maxiter = 10000;
   const char *file_name = "julia-fractal.pgm";
-  const double cx = 0.2;
-  const double cy = 0.55;
+  const complex<double> c(0.2, 0.55);
 
   std::vector<int> image(width * height);
 
   auto start = std::chrono::steady_clock::now();
   // Compute the fractal
-  juliaset(cx, cy, -1.5, 1.5, width, -1.5, 1.5, height, maxiter, image.data());
+  juliaset(c, -1.5, 1.5, width, -1.5, 1.5, height, maxiter, image.data());
   auto end = std::chrono::steady_clock::now();
 
   fmt::print(stderr, "Time required to compute the fractal: {0} ms\n",
@@ -103,7 +105,7 @@ int main(void) {
              "# Julia set for the point {0} + {1}j\n"
              "{2} {3}\n"
              "255\n",
-             cx, cy, width, height);
+             c.real(), c.imag(), width, height);
 
   for (int j = 0; j < height; ++j) {
     for (int i = 0; i < width; ++i) {
