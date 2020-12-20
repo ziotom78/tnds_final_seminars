@@ -218,6 +218,9 @@ int julia(double startx, double starty, double cx, double cy, int max_iter = 102
 }
 ```
 
+(Evitiamo di usare `#include <complex>` perché così è più semplice
+capire il codice assembler).
+
 # Codice assembler (`-O0`)
 
 <table width="100%">
@@ -269,10 +272,9 @@ Flag   Tempo
 
 # Produrre codice assembler
 
--   Il compilatore `g++` si basa sul compilatore
-    [GCC](https://gcc.gnu.org/), che implementa una serie di algoritmi
-    per capire quale sia il modo più performante di usare i registri e
-    ordinare le istruzioni
+-   Il compilatore `g++` si basa su [GCC](https://gcc.gnu.org/), che
+    implementa una serie di algoritmi per capire quale sia il modo più
+    performante di usare i registri e ordinare le istruzioni
 -   Il compilatore `clang` si basa sulla libreria
     [LLVM](https://llvm.org/), che prende in input una descrizione «ad
     alto livello» della sequenza di operazioni da eseguire e le
