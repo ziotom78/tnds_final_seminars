@@ -10,7 +10,7 @@ all: c++.html python.html julia.html
 		-t revealjs \
 		--katex \
 		-s \
-		-V revealjs-url=https://revealjs.com \
+		-V revealjs-url=https://ziotom78.github.io/tnds_final_seminars/reveal.js-4.1.0 \
 		-V theme=white \
 		-V width=1440 \
 		-V height=810 \
