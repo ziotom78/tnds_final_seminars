@@ -37,10 +37,7 @@ int julia(complex<double> start, complex<double> c, int max_iter) {
     iter++;
   }
 
-  if (iter >= max_iter)
-    return -1;
-  else
-    return iter;
+  return (iter >= max_iter) ? -1 : iter;
 }
 
 /* Apply a linear transformation to "val", so that the following
