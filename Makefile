@@ -1,9 +1,11 @@
+PANDOC=/usr/bin/pandoc
+
 .phony: all
 
 all: c++.html python.html julia.html
 
 %.html: %.md
-	pandoc \
+	$(PANDOC) \
 		-f markdown+tex_math_single_backslash \
 		-t revealjs \
 		--katex \

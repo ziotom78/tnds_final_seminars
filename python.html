@@ -8,8 +8,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="https://revealjs.com/css/reset.css">
-  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <link rel="stylesheet" href="https://revealjs.com/dist/reset.css">
+  <link rel="stylesheet" href="https://revealjs.com/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,18 +80,7 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="https://revealjs.com/css/theme/white.css" id="theme">
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="https://revealjs.com/dist/theme/white.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -115,16 +104,16 @@
 </section>
 <section id="frattali-di-julia-in-python" class="slide level1">
 <h1>Frattali di Julia in Python</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> julia(z, c, maxiter<span class="op">=</span><span class="dv">256</span>):</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    iteridx <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>    <span class="cf">while</span> (z.real<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> z.imag<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span>) <span class="kw">and</span> (iteridx <span class="op">&lt;</span> maxiter):</span>
-<span id="cb1-4"><a href="#cb1-4"></a>        z <span class="op">=</span> z <span class="op">*</span> z <span class="op">+</span> c</span>
-<span id="cb1-5"><a href="#cb1-5"></a>        iteridx <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>        </span>
-<span id="cb1-7"><a href="#cb1-7"></a>    <span class="cf">if</span> iteridx <span class="op">==</span> maxiter:</span>
-<span id="cb1-8"><a href="#cb1-8"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>    <span class="cf">else</span>:</span>
-<span id="cb1-10"><a href="#cb1-10"></a>        <span class="cf">return</span> iteridx</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> julia(z, c, maxiter<span class="op">=</span><span class="dv">256</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    iteridx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (z.real<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> z.imag<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span>) <span class="kw">and</span> (iteridx <span class="op">&lt;</span> maxiter):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        z <span class="op">=</span> z <span class="op">*</span> z <span class="op">+</span> c</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        iteridx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> iteridx <span class="op">==</span> maxiter:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> iteridx</span></code></pre></div>
 </section>
 <section id="confronto-tra-c-e-python" class="slide level1">
 <h1>Confronto tra C++ e Python</h1>
@@ -162,35 +151,35 @@
 <section id="section" class="slide level1">
 <h1></h1>
 <p>In C++, una istruzione come <code>x = a + b</code> può essere convertita in Assembler così:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">mov</span> <span class="kw">rax</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-24</span>] <span class="co">; rax = a</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">add</span> <span class="kw">rax</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-16</span>] <span class="co">; rax += b</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">mov</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-8</span>], <span class="kw">rax</span>  <span class="co">; x = rax</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">mov</span> <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">24</span><span class="op">]</span> <span class="co">; rax = a</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">add</span> <span class="kw">rax</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">16</span><span class="op">]</span> <span class="co">; rax += b</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">mov</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">],</span> <span class="kw">rax</span>  <span class="co">; x = rax</span></span></code></pre></div>
 <p>oppure così:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">movsd</span> <span class="kw">xmm0</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-24</span>]  <span class="co">; xmm0 = a</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">movsd</span> <span class="kw">xmm1</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-16</span>]  <span class="co">; xmm1 = b</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">addsd</span> <span class="kw">xmm0</span>, <span class="kw">xmm1</span>                <span class="co">; xmm0 += xmm1</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">movsd</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-8</span>], <span class="kw">xmm0</span>   <span class="co">; x = xmm0</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">movsd</span> <span class="kw">xmm0</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">24</span><span class="op">]</span>  <span class="co">; xmm0 = a</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">movsd</span> <span class="kw">xmm1</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">16</span><span class="op">]</span>  <span class="co">; xmm1 = b</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">addsd</span> <span class="kw">xmm0</span><span class="op">,</span> <span class="kw">xmm1</span>                <span class="co">; xmm0 += xmm1</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">movsd</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">8</span><span class="op">],</span> <span class="kw">xmm0</span>   <span class="co">; x = xmm0</span></span></code></pre></div>
 <p>a seconda che le variabili <code>a</code>, <code>b</code> e <code>x</code> siano <code>int</code> o <code>double</code>.</p>
 </section>
 <section id="section-1" class="slide level1">
 <h1></h1>
 <p>Consideriamo ora questo programma Python:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> add(a, b):</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    </span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">print</span>(add(<span class="dv">1</span>, <span class="dv">3</span>))      <span class="co"># Result: 4</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(add(<span class="fl">1.0</span>, <span class="fl">3.0</span>))  <span class="co"># Result: 4.0</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="bu">print</span>(add(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))  <span class="co"># Result: &#39;ab&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(a, b):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(add(<span class="dv">1</span>, <span class="dv">3</span>))      <span class="co"># Result: 4</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(add(<span class="fl">1.0</span>, <span class="fl">3.0</span>))  <span class="co"># Result: 4.0</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(add(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))  <span class="co"># Result: &#39;ab&#39;</span></span></code></pre></div>
 <p>Come può Python compilare in un linguaggio assembler la funzione <code>add</code>, visto che la somma può assumere significati diversi?</p>
 </section>
 <section id="compilazione-e-python" class="slide level1">
 <h1>Compilazione e Python</h1>
 <ul>
 <li><p>In Python, l’istruzione <code>x = a + b</code> viene <strong>sempre</strong> compilata così:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">load_fast</span>   0 <span class="co"># 0 stands for a</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">load_fast</span>   1 <span class="co"># 1 stands for b</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="ex">binary_add</span>    <span class="co"># sum the last two nums</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="ex">store_fast</span>  2 <span class="co"># 2 stands for x</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">load_fast</span>   0 # 0 stands for a</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">load_fast</span>   1 # 1 stands for b</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">binary_add</span>    # sum the last two nums</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">store_fast</span>  2 # 2 stands for x</span></code></pre></div></li>
 <li><p>Questi comandi assumono che ci sia un vettore di elementi (chiamato <em>stack</em>) che venga mantenuto durante l’esecuzione, e che <code>load_fast</code> e <code>store_fast</code> aggiungano e tolgano elementi in coda al vettore.</p></li>
 <li><p>Istruzioni come <code>binary_add</code> tolgono uno o più elementi in coda al vettore, fanno un’operazione su di essi, e mettono il risultato in coda al vettore</p></li>
 </ul>
@@ -198,19 +187,19 @@
 <section id="section-2" class="slide level1">
 <h1></h1>
 <p>Per eseguire il file <code>test.py</code>, occorre sempre chiamare <code>python3</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">python3</span> test.py</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> test.py</span></code></pre></div>
 <p>Il programma <code>python3</code> è scritto in C, ed è più o meno fatto così:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">const</span> <span class="dt">char</span> argv[argc + <span class="dv">1</span>]) {</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    initialize();</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a>    PyProgram * prog = compile_to_bytecode(argc, argv);</span>
-<span id="cb7-5"><a href="#cb7-5"></a>    <span class="cf">while</span>(<span class="dv">1</span>) { <span class="co">/* Run commands in sequence, like a real CPU */</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>        PyCommand * command = get_next_bytecode(prog);</span>
-<span id="cb7-7"><a href="#cb7-7"></a>        <span class="cf">if</span> (! run_command(command))</span>
-<span id="cb7-8"><a href="#cb7-8"></a>            <span class="cf">break</span>;</span>
-<span id="cb7-9"><a href="#cb7-9"></a>    }</span>
-<span id="cb7-10"><a href="#cb7-10"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
-<span id="cb7-11"><a href="#cb7-11"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">const</span> <span class="dt">char</span> argv[argc + <span class="dv">1</span>]) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    initialize();</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    PyProgram * prog = compile_to_bytecode(argc, argv);</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(<span class="dv">1</span>) { <span class="co">/* Run commands in sequence, like a real CPU */</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        PyCommand * command = get_next_bytecode(prog);</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (! run_command(command))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span>;</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span>;</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </section>
 <section id="cosa-fa-run_command" class="slide level1">
 <h1>Cosa fa <code>run_command</code></h1>
@@ -222,21 +211,21 @@
 <section id="section-3" class="slide level1">
 <h1></h1>
 <p>Questa è una possibile implementazione per <code>binary_add</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1"></a><span class="dt">void</span> binary_add(PyObject * val1,</span>
-<span id="cb8-2"><a href="#cb8-2"></a>                PyObject * val2,</span>
-<span id="cb8-3"><a href="#cb8-3"></a>                PyObject * result) {    </span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="cf">if</span> (isinteger(val1) &amp;&amp; isinteger(val2)) {</span>
-<span id="cb8-5"><a href="#cb8-5"></a>        <span class="co">/* Sum two integers */</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>        <span class="dt">int</span> v1 = get_integer(val1);</span>
-<span id="cb8-7"><a href="#cb8-7"></a>        <span class="dt">int</span> v2 = get_integer(val2);</span>
-<span id="cb8-8"><a href="#cb8-8"></a>        result.set_type(PY_INTEGER)</span>
-<span id="cb8-9"><a href="#cb8-9"></a>        result.set_integer(v1 + v2);</span>
-<span id="cb8-10"><a href="#cb8-10"></a>    } <span class="cf">else</span> <span class="cf">if</span> (isreal(val1) &amp;&amp; isreal(val2)) {</span>
-<span id="cb8-11"><a href="#cb8-11"></a>        <span class="co">/* Sum two floating-point numbers */</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a>    } <span class="cf">else</span> {</span>
-<span id="cb8-13"><a href="#cb8-13"></a>        <span class="co">/* ... */</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a>    }</span>
-<span id="cb8-15"><a href="#cb8-15"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> binary_add(PyObject * val1,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                PyObject * val2,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                PyObject * result) {    </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (isinteger(val1) &amp;&amp; isinteger(val2)) {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">/* Sum two integers */</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> v1 = get_integer(val1);</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> v2 = get_integer(val2);</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        result.set_type(PY_INTEGER)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        result.set_integer(v1 + v2);</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (isreal(val1) &amp;&amp; isreal(val2)) {</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">/* Sum two floating-point numbers */</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">/* ... */</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </section>
 <section id="linguaggi-interpretati" class="slide level1">
 <h1>Linguaggi interpretati</h1>
@@ -272,17 +261,17 @@ detector        85.3</code></pre></li>
 </section>
 <section id="soluzione-dellesercizio" class="slide level1">
 <h1>Soluzione dell’esercizio</h1>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;test.txt&quot;</span>, <span class="st">&quot;rt&quot;</span>) <span class="im">as</span> inpf:</span>
-<span id="cb10-2"><a href="#cb10-2"></a>    lines <span class="op">=</span> [x.strip() <span class="cf">for</span> x <span class="kw">in</span> inpf.readlines()]</span>
-<span id="cb10-3"><a href="#cb10-3"></a></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># Remove from &quot;lines&quot; empty lines and comments</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>lines <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> lines <span class="cf">if</span> x <span class="op">!=</span> <span class="st">&quot;&quot;</span> <span class="kw">and</span> x[<span class="dv">0</span>] <span class="op">!=</span> <span class="st">&quot;#&quot;</span>]</span>
-<span id="cb10-6"><a href="#cb10-6"></a></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># Split each line in two</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a>pairs <span class="op">=</span> [x.split() <span class="cf">for</span> x <span class="kw">in</span> lines]</span>
-<span id="cb10-9"><a href="#cb10-9"></a></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="cf">for</span> sensor, temp <span class="kw">in</span> <span class="bu">sorted</span>(pairs, key<span class="op">=</span><span class="kw">lambda</span> x: <span class="bu">float</span>(x[<span class="dv">1</span>])):</span>
-<span id="cb10-11"><a href="#cb10-11"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>sensor<span class="sc">:20}</span><span class="ss"> (T = </span><span class="sc">{</span>temp<span class="sc">}</span><span class="ss"> K)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;test.txt&quot;</span>, <span class="st">&quot;rt&quot;</span>) <span class="im">as</span> inpf:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    lines <span class="op">=</span> [x.strip() <span class="cf">for</span> x <span class="kw">in</span> inpf.readlines()]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove from &quot;lines&quot; empty lines and comments</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>lines <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> lines <span class="cf">if</span> x <span class="op">!=</span> <span class="st">&quot;&quot;</span> <span class="kw">and</span> x[<span class="dv">0</span>] <span class="op">!=</span> <span class="st">&quot;#&quot;</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Split each line in two</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> [x.split() <span class="cf">for</span> x <span class="kw">in</span> lines]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sensor, temp <span class="kw">in</span> <span class="bu">sorted</span>(pairs, key<span class="op">=</span><span class="kw">lambda</span> x: <span class="bu">float</span>(x[<span class="dv">1</span>])):</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>sensor<span class="sc">:20}</span><span class="ss"> (T = </span><span class="sc">{</span>temp<span class="sc">}</span><span class="ss"> K)&quot;</span>)</span></code></pre></div>
 <pre><code>detector             (T = 85.3 K)
 lower_flange         (T = 270.1 K)
 horn                 (T = 290.81 K)
@@ -311,10 +300,10 @@ upper_flange         (T = 301.76 K)</code></pre>
 <li>La propagazione viene fatta da codice C o Fortran, ed è quindi velocissima</li>
 <li>Si raggiunge una buona velocità, a volte confrontabile con C++ e Fortran</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a>r <span class="op">=</span> np.random.randn(<span class="dv">10_000</span>) <span class="co"># Generate 10.000 random numbers</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(<span class="ss">f&quot;Average value: </span><span class="sc">{r.</span>mean()<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.random.randn(<span class="dv">10_000</span>) <span class="co"># Generate 10.000 random numbers</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Average value: </span><span class="sc">{r.</span>mean()<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 </section>
 <section id="section-4" class="slide level1">
 <h1></h1>
@@ -330,24 +319,24 @@ upper_flange         (T = 301.76 K)</code></pre>
 </tr>
 <tr>
 <td>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1"></a><span class="dt">double</span> midpoint(<span class="dt">double</span> fn(<span class="dt">double</span>),</span>
-<span id="cb13-2"><a href="#cb13-2"></a>                <span class="dt">double</span> a, <span class="dt">double</span> b,</span>
-<span id="cb13-3"><a href="#cb13-3"></a>                <span class="dt">int</span> nstep) {</span>
-<span id="cb13-4"><a href="#cb13-4"></a>    <span class="dt">double</span> sum = <span class="fl">0.</span>;</span>
-<span id="cb13-5"><a href="#cb13-5"></a>    <span class="dt">double</span> h = (b - a) / nstep;</span>
-<span id="cb13-6"><a href="#cb13-6"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nstep; ++i) {</span>
-<span id="cb13-7"><a href="#cb13-7"></a>        sum += fn(a + (i + <span class="fl">0.5</span>) * h);</span>
-<span id="cb13-8"><a href="#cb13-8"></a>    }</span>
-<span id="cb13-9"><a href="#cb13-9"></a>    <span class="cf">return</span> sum * h;</span>
-<span id="cb13-10"><a href="#cb13-10"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> midpoint(<span class="dt">double</span> fn(<span class="dt">double</span>),</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                <span class="dt">double</span> a, <span class="dt">double</span> b,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                <span class="dt">int</span> nstep) {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> sum = <span class="fl">0.</span>;</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> h = (b - a) / nstep;</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; nstep; ++i) {</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        sum += fn(a + (i + <span class="fl">0.5</span>) * h);</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sum * h;</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </td>
 <td>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="im">import</span> numpy</span>
-<span id="cb14-2"><a href="#cb14-2"></a></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">def</span> midpoint(fn, a, b, nsteps):</span>
-<span id="cb14-4"><a href="#cb14-4"></a>    h <span class="op">=</span> (b <span class="op">-</span> a) <span class="op">/</span> nsteps</span>
-<span id="cb14-5"><a href="#cb14-5"></a>    x <span class="op">=</span> numpy.linspace(a <span class="op">+</span> h<span class="op">/</span><span class="dv">2</span>, b <span class="op">-</span> h<span class="op">/</span><span class="dv">2</span>, nsteps)</span>
-<span id="cb14-6"><a href="#cb14-6"></a>    <span class="cf">return</span> numpy.<span class="bu">sum</span>(fn(x)) <span class="op">*</span> h</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> midpoint(fn, a, b, nsteps):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> (b <span class="op">-</span> a) <span class="op">/</span> nsteps</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> numpy.linspace(a <span class="op">+</span> h<span class="op">/</span><span class="dv">2</span>, b <span class="op">-</span> h<span class="op">/</span><span class="dv">2</span>, nsteps)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> numpy.<span class="bu">sum</span>(fn(x)) <span class="op">*</span> h</span></code></pre></div>
 </td>
 </tr>
 </table>
@@ -367,20 +356,20 @@ upper_flange         (T = 301.76 K)</code></pre>
 </section>
 <section id="frattali-di-julia-usando-numba" class="slide level1">
 <h1>Frattali di Julia usando Numba</h1>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> numba <span class="im">import</span> njit</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="at">@njit</span>  <span class="co"># This is the *only* change!</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="kw">def</span> julia(z, c, maxiter<span class="op">=</span><span class="dv">256</span>):</span>
-<span id="cb15-5"><a href="#cb15-5"></a>    iteridx <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>    <span class="cf">while</span> (z.real <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> z.imag <span class="op">**</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span>) <span class="kw">and</span> (iteridx <span class="op">&lt;</span> maxiter):</span>
-<span id="cb15-7"><a href="#cb15-7"></a>        <span class="co"># Python supports complex numbers</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a>        z <span class="op">=</span> z <span class="op">*</span> z <span class="op">+</span> c</span>
-<span id="cb15-9"><a href="#cb15-9"></a>        iteridx <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a></span>
-<span id="cb15-11"><a href="#cb15-11"></a>    <span class="cf">if</span> iteridx <span class="op">==</span> maxiter:</span>
-<span id="cb15-12"><a href="#cb15-12"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a>    <span class="cf">else</span>:</span>
-<span id="cb15-14"><a href="#cb15-14"></a>        <span class="cf">return</span> iteridx</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numba <span class="im">import</span> njit</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">@njit</span>  <span class="co"># This is the *only* change!</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> julia(z, c, maxiter<span class="op">=</span><span class="dv">256</span>):</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    iteridx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (z.real <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> z.imag <span class="op">**</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">4</span>) <span class="kw">and</span> (iteridx <span class="op">&lt;</span> maxiter):</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Python supports complex numbers</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        z <span class="op">=</span> z <span class="op">*</span> z <span class="op">+</span> c</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        iteridx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> iteridx <span class="op">==</span> maxiter:</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> iteridx</span></code></pre></div>
 </section>
 <section id="frattali-di-julia-usando-numba-1" class="slide level1">
 <h1>Frattali di Julia usando Numba</h1>
@@ -425,12 +414,17 @@ upper_flange         (T = 301.76 K)</code></pre>
     </div>
   </div>
 
-  <script src="https://revealjs.com/js/reveal.js"></script>
+  <script src="https://revealjs.com/dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://revealjs.com/plugin/notes/notes.js"></script>
+  <script src="https://revealjs.com/plugin/search/search.js"></script>
+  <script src="https://revealjs.com/plugin/zoom/zoom.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
+      // https://revealjs.com/config/
       Reveal.initialize({
         // Push each slide change to the browser history
         history: true,
@@ -440,11 +434,11 @@ upper_flange         (T = 301.76 K)</code></pre>
         width: 1440,
         height: 810,
 
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
-          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
       });
     </script>

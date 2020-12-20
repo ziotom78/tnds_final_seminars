@@ -8,8 +8,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="https://revealjs.com/css/reset.css">
-  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <link rel="stylesheet" href="https://revealjs.com/dist/reset.css">
+  <link rel="stylesheet" href="https://revealjs.com/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,27 +80,18 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="https://revealjs.com/css/theme/white.css" id="theme">
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="https://revealjs.com/dist/theme/white.css" id="theme">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
    var mathElements = document.getElementsByClassName("math");
+   var macros = [];
    for (var i = 0; i < mathElements.length; i++) {
     var texText = mathElements[i].firstChild;
     if (mathElements[i].tagName == "SPAN") {
      katex.render(texText.data, mathElements[i], {
       displayMode: mathElements[i].classList.contains('display'),
       throwOnError: false,
+      macros: macros,
       fleqn: false
      });
   }}});
@@ -190,11 +181,11 @@
 <ul>
 <li><p>Il linguaggio macchina è espresso come una sequenza di bit: <code>0110101110…</code></p></li>
 <li><p>Può essere «traslitterato» partendo dal linguaggio assembler (usando compilatori come <a href="https://www.nasm.us/">NASM</a> e <a href="https://yasm.tortall.net/">YASM</a>):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">movapd</span> <span class="kw">xmm4</span>, <span class="kw">xmm1</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">mulsd</span> <span class="kw">xmm5</span>, <span class="kw">xmm0</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">mulsd</span> <span class="kw">xmm4</span>, <span class="kw">xmm1</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="bu">jle</span> .L10</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="bu">movapd</span> <span class="kw">xmm6</span>, <span class="kw">xmm5</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">movapd</span> <span class="kw">xmm4</span><span class="op">,</span> <span class="kw">xmm1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">mulsd</span> <span class="kw">xmm5</span><span class="op">,</span> <span class="kw">xmm0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">mulsd</span> <span class="kw">xmm4</span><span class="op">,</span> <span class="kw">xmm1</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">jle</span> <span class="op">.</span>L10</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">movapd</span> <span class="kw">xmm6</span><span class="op">,</span> <span class="kw">xmm5</span></span></code></pre></div></li>
 <li><p>CPU diverse hanno convenzioni diverse per il linguaggio assembler</p></li>
 </ul>
 </section>
@@ -263,22 +254,22 @@
 </tr>
 <tr>
 <td>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>{</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="co">// loop body</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; n; ++i)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// loop body</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </td>
 <td>
-<div class="sourceCode" id="cb3"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb3-1"><a href="#cb3-1"></a>    <span class="bu">mov</span>  <span class="kw">ecx</span>, [n]</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    <span class="bu">xor</span>  <span class="kw">eax</span>, <span class="kw">eax</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">LoopTop:</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>    <span class="bu">cmp</span>  <span class="kw">eax</span>, <span class="kw">ecx</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>    <span class="bu">jge</span>  LoopEnd</span>
-<span id="cb3-6"><a href="#cb3-6"></a>    <span class="co">; (loop body: DO NOT MODIFY ecx!)</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>    <span class="bu">add</span>  <span class="kw">eax</span>, <span class="dv">1</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>    <span class="bu">jmp</span>  LoopTop</span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="fu">LoopEnd:</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>    <span class="co">; (etc.)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="bu">mov</span>  <span class="kw">ecx</span><span class="op">,</span> <span class="op">[</span>n<span class="op">]</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">xor</span>  <span class="kw">eax</span><span class="op">,</span> <span class="kw">eax</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">LoopTop:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">cmp</span>  <span class="kw">eax</span><span class="op">,</span> <span class="kw">ecx</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">jge</span>  LoopEnd</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">; (loop body: DO NOT MODIFY ecx!)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">add</span>  <span class="kw">eax</span><span class="op">,</span> <span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">jmp</span>  LoopTop</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">LoopEnd:</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">; (etc.)</span></span></code></pre></div>
 </td>
 </tr>
 </table>
@@ -289,11 +280,11 @@
 <li><p>Per ogni dato, il compilatore deve decidere se usare un registro o la RAM</p></li>
 <li><p>Trovare la scelta ottimale è molto difficile (vedi <a href="https://en.wikipedia.org/wiki/Register_allocation">Wikipedia</a>)</p></li>
 <li><p>In passato il C/C++ offriva la parola chiave <code>register</code> (oggi deprecata):</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a><span class="dt">void</span> fn(<span class="dt">void</span>) {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="dt">int</span> a, b;</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="dt">register</span> <span class="dt">int</span> i; <span class="co">/* Put this variable in a register, if possible */</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="co">/* … */</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>}</span></code></pre></div></li>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> fn(<span class="dt">void</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a, b;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">register</span> <span class="dt">int</span> i; <span class="co">/* Put this variable in a register, if possible */</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* … */</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
 </ul>
 </section>
 <section id="frattali-di-julia" class="slide level1">
@@ -313,19 +304,20 @@
 </section>
 <section id="frattali-di-julia-in-c" class="slide level1">
 <h1>Frattali di Julia in C++</h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1"></a><span class="dt">int</span> julia(<span class="dt">double</span> startx, <span class="dt">double</span> starty, <span class="dt">double</span> cx, <span class="dt">double</span> cy, <span class="dt">int</span> max_iter = <span class="dv">1024</span>) {</span>
-<span id="cb5-2"><a href="#cb5-2"></a>    <span class="dt">int</span> iter = <span class="dv">0</span>;</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="dt">double</span> zx = startx, zy = starty;</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="cf">while</span> ((zx * zx + zy * zy &lt; <span class="dv">4</span>) &amp;&amp; (iter &lt; max_iter)) {</span>
-<span id="cb5-5"><a href="#cb5-5"></a>        <span class="dt">double</span> tmp = zx * zx - zy * zy;</span>
-<span id="cb5-6"><a href="#cb5-6"></a>        zy = <span class="dv">2</span> * zx * zy + cy;</span>
-<span id="cb5-7"><a href="#cb5-7"></a>        zx = tmp + cx;</span>
-<span id="cb5-8"><a href="#cb5-8"></a></span>
-<span id="cb5-9"><a href="#cb5-9"></a>        iter++;</span>
-<span id="cb5-10"><a href="#cb5-10"></a>    }</span>
-<span id="cb5-11"><a href="#cb5-11"></a></span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="cf">return</span> (iter == max_iter) ? -<span class="dv">1</span> : iter;</span>
-<span id="cb5-13"><a href="#cb5-13"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> julia(<span class="dt">double</span> startx, <span class="dt">double</span> starty, <span class="dt">double</span> cx, <span class="dt">double</span> cy, <span class="dt">int</span> max_iter = <span class="dv">1024</span>) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> iter = <span class="dv">0</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> zx = startx, zy = starty;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> ((zx * zx + zy * zy &lt; <span class="dv">4</span>) &amp;&amp; (iter &lt; max_iter)) {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">double</span> tmp = zx * zx - zy * zy;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        zy = <span class="dv">2</span> * zx * zy + cy;</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        zx = tmp + cx;</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        iter++;</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (iter == max_iter) ? -<span class="dv">1</span> : iter;</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>(Evitiamo di usare <code>#include &lt;complex&gt;</code> perché così è più semplice capire il codice assembler).</p>
 </section>
 <section id="codice-assembler--o0" class="slide level1">
 <h1>Codice assembler (<code>-O0</code>)</h1>
@@ -340,14 +332,14 @@
 </tr>
 <tr>
 <td>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1"></a>zy = <span class="dv">2</span> * zx * zy + cy;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>zy = <span class="dv">2</span> * zx * zy + cy;</span></code></pre></div>
 </td>
 <td>
-<div class="sourceCode" id="cb7"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb7-1"><a href="#cb7-1"></a><span class="bu">movsd</span> <span class="kw">xmm0</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-24</span>]  <span class="co">; xmm0 = zx</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">addsd</span> <span class="kw">xmm0</span>, <span class="kw">xmm0</span>                <span class="co">; xmm0 += xmm0</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">mulsd</span> <span class="kw">xmm0</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-16</span>]  <span class="co">; xmm0 *= zy</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="bu">addsd</span> <span class="kw">xmm0</span>, <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-64</span>]  <span class="co">; xmm0 += cy</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="bu">movsd</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> [<span class="kw">rbp</span><span class="dv">-16</span>], <span class="kw">xmm0</span>  <span class="co">; zy = xmm0</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode asm"><code class="sourceCode fasm"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">movsd</span> <span class="kw">xmm0</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">24</span><span class="op">]</span>  <span class="co">; xmm0 = zx</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">addsd</span> <span class="kw">xmm0</span><span class="op">,</span> <span class="kw">xmm0</span>                <span class="co">; xmm0 += xmm0</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">mulsd</span> <span class="kw">xmm0</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">16</span><span class="op">]</span>  <span class="co">; xmm0 *= zy</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">addsd</span> <span class="kw">xmm0</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">64</span><span class="op">]</span>  <span class="co">; xmm0 += cy</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">movsd</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rbp</span><span class="op">-</span><span class="dv">16</span><span class="op">],</span> <span class="kw">xmm0</span>  <span class="co">; zy = xmm0</span></span></code></pre></div>
 </td>
 </tr>
 </table>
@@ -390,7 +382,7 @@
 <section id="produrre-codice-assembler" class="slide level1">
 <h1>Produrre codice assembler</h1>
 <ul>
-<li>Il compilatore <code>g++</code> si basa sul compilatore <a href="https://gcc.gnu.org/">GCC</a>, che implementa una serie di algoritmi per capire quale sia il modo più performante di usare i registri e ordinare le istruzioni</li>
+<li>Il compilatore <code>g++</code> si basa su <a href="https://gcc.gnu.org/">GCC</a>, che implementa una serie di algoritmi per capire quale sia il modo più performante di usare i registri e ordinare le istruzioni</li>
 <li>Il compilatore <code>clang</code> si basa sulla libreria <a href="https://llvm.org/">LLVM</a>, che prende in input una descrizione «ad alto livello» della sequenza di operazioni da eseguire e le traduce in codice assembler ottimizzato</li>
 </ul>
 </section>
@@ -415,12 +407,17 @@
     </div>
   </div>
 
-  <script src="https://revealjs.com/js/reveal.js"></script>
+  <script src="https://revealjs.com/dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://revealjs.com/plugin/notes/notes.js"></script>
+  <script src="https://revealjs.com/plugin/search/search.js"></script>
+  <script src="https://revealjs.com/plugin/zoom/zoom.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
+      // https://revealjs.com/config/
       Reveal.initialize({
         // Push each slide change to the browser history
         history: true,
@@ -430,11 +427,11 @@
         width: 1440,
         height: 810,
 
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
-          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
       });
     </script>

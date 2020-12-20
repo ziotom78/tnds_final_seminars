@@ -8,8 +8,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="https://revealjs.com/css/reset.css">
-  <link rel="stylesheet" href="https://revealjs.com/css/reveal.css">
+  <link rel="stylesheet" href="https://revealjs.com/dist/reset.css">
+  <link rel="stylesheet" href="https://revealjs.com/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,18 +80,7 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="https://revealjs.com/css/theme/white.css" id="theme">
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://revealjs.com/css/print/pdf.css' : 'https://revealjs.com/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="https://revealjs.com/lib/js/html5shiv.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="https://revealjs.com/dist/theme/white.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -129,17 +118,17 @@
 </section>
 <section id="un-assaggio-del-linguaggio" class="slide level1">
 <h1>Un assaggio del linguaggio</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1"></a>f(x) <span class="op">=</span> <span class="fl">3</span>x<span class="op">^</span><span class="fl">2</span>                  <span class="co"># Functions can be defined on one line!</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>g(t<span class="op">,</span> ν) <span class="op">=</span> sin(<span class="fl">2</span>π <span class="op">*</span> t <span class="op">*</span> ν)    <span class="co"># You can use Unicode characters</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>x <span class="op">=</span> <span class="dt">Float64</span>[<span class="fl">1.0</span><span class="op">,</span> <span class="fl">3.0</span><span class="op">,</span> <span class="fl">4.0</span>]   <span class="co"># Lists are supported natively</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>sin.(x)                      <span class="co"># Using &quot;.&quot;, functions can be applied to arrays</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a>⊕(x<span class="op">,</span> y) <span class="op">=</span> <span class="fl">2</span>x <span class="op">+</span> y            <span class="co"># New operators can be defined!</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="fl">3</span> ⊕ <span class="fl">2</span>                       <span class="co"># Prints 8</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f(x) <span class="op">=</span> <span class="fl">3</span>x<span class="op">^</span><span class="fl">2</span>                  <span class="co"># Functions can be defined on one line!</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>g(t<span class="op">,</span> ν) <span class="op">=</span> sin(<span class="fl">2</span>π <span class="op">*</span> t <span class="op">*</span> ν)    <span class="co"># You can use Unicode characters</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dt">Float64</span>[<span class="fl">1.0</span><span class="op">,</span> <span class="fl">3.0</span><span class="op">,</span> <span class="fl">4.0</span>]   <span class="co"># Lists are supported natively</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sin.(x)                      <span class="co"># Using &quot;.&quot;, functions can be applied to arrays</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>⊕(x<span class="op">,</span> y) <span class="op">=</span> <span class="fl">2</span>x <span class="op">+</span> y            <span class="co"># New operators can be defined!</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fl">3</span> ⊕ <span class="fl">2</span>                       <span class="co"># Prints 8</span></span></code></pre></div>
 </section>
 <section id="come-funziona" class="slide level1">
 <h1>Come funziona?</h1>
@@ -214,16 +203,16 @@ julia&gt; mysum(3+2im, 4-3im)
 </section>
 <section id="esempio-frattale-di-julia" class="slide level1">
 <h1>Esempio: frattale di Julia</h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">function</span> julia(start<span class="op">,</span> c<span class="op">,</span> max_iter)</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    iter <span class="op">=</span> <span class="fl">1</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>    z <span class="op">=</span> start</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="kw">while</span> (abs2(z) <span class="op">&lt;</span> <span class="fl">4.0</span>) <span class="op">&amp;&amp;</span> (iter <span class="op">&lt;=</span> max_iter)</span>
-<span id="cb6-5"><a href="#cb6-5"></a>        z <span class="op">=</span> z <span class="op">*</span> z <span class="op">+</span> c</span>
-<span id="cb6-6"><a href="#cb6-6"></a>        iter <span class="op">+=</span> <span class="fl">1</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>    <span class="kw">end</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a></span>
-<span id="cb6-9"><a href="#cb6-9"></a>    iter <span class="op">&gt;</span> max_iter ? <span class="op">-</span><span class="fl">1</span> <span class="op">:</span> iter</span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> julia(start<span class="op">,</span> c<span class="op">,</span> max_iter)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    iter <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> start</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">while</span> (abs2(z) <span class="op">&lt;</span> <span class="fl">4.0</span>) <span class="op">&amp;&amp;</span> (iter <span class="op">&lt;=</span> max_iter)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        z <span class="op">=</span> z <span class="op">*</span> z <span class="op">+</span> c</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        iter <span class="op">+=</span> <span class="fl">1</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    iter <span class="op">&gt;</span> max_iter ? <span class="op">-</span><span class="fl">1</span> <span class="op">:</span> iter</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
 </section>
 <section id="velocità-di-esecuzione" class="slide level1">
 <h1>Velocità di esecuzione</h1>
@@ -237,12 +226,12 @@ julia&gt; mysum(3+2im, 4-3im)
 <li><p>La compilazione avviene quando il codice viene eseguito la prima volta</p></li>
 <li><p>Invocare il comando <code>import Plots; plot(…)</code> all’avvio richiede <strong>14 secondi</strong>; chiamare altre volte <code>plot</code> è invece immediato</p></li>
 <li><p>Di conseguenza, Julia <strong>non</strong> va generalmente usato come C++ o come Python:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a>$ <span class="fu">gcc</span> -o progr progr.cc  <span class="co"># Ok, create an executable</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>$ <span class="ex">./progr</span>                <span class="co"># Ok, run it</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a>$ <span class="ex">python</span> progr.py        <span class="co"># Ok, run it</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a>$ <span class="ex">julia</span> progr.jl         <span class="co"># Aaaargh! Every time it recompiles everything!</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>$ <span class="fu">gcc</span> -o progr progr.cc  # Ok, create an executable</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>$ <span class="ex">./progr</span>                # Ok, run it</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>$ <span class="ex">python</span> progr.py        # Ok, run it</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>$ <span class="ex">julia</span> progr.jl         # Aaaargh! Every time it recompiles everything!</span></code></pre></div></li>
 </ul>
 </section>
 <section id="usare-julia-al-meglio" class="slide level1">
@@ -267,28 +256,28 @@ julia&gt; mysum(3+2im, 4-3im)
 </section>
 <section id="esercizio-1" class="slide level1">
 <h1>Esercizio 1</h1>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1"></a><span class="dt">void</span> f(<span class="dt">int</span> a) {</span>
-<span id="cb8-2"><a href="#cb8-2"></a>    <span class="co">// ????</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>}</span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="dt">int</span> main() {</span>
-<span id="cb8-5"><a href="#cb8-5"></a>    f(<span class="dv">2</span> + <span class="dv">2</span>); <span class="co">// Should print &quot;A&quot;</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a>    f(<span class="dv">2</span> * <span class="dv">2</span>); <span class="co">// Should print &quot;B&quot;</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a>    f(<span class="dv">4</span>); <span class="co">// Should print &quot;B&quot;</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> f(<span class="dt">int</span> a) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ????</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main() {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    f(<span class="dv">2</span> + <span class="dv">2</span>); <span class="co">// Should print &quot;A&quot;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    f(<span class="dv">2</span> * <span class="dv">2</span>); <span class="co">// Should print &quot;B&quot;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    f(<span class="dv">4</span>); <span class="co">// Should print &quot;B&quot;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Come si può scrivere una funzione <code>f</code> che stampa <code>A</code> se l’argomento è calcolato mediante una somma, e <code>B</code> altrimenti?</p>
 </section>
 <section id="soluzione-in-julia" class="slide level1">
 <h1>Soluzione in Julia</h1>
-<div class="sourceCode" id="cb9"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">macro</span> f(<span class="cn">e</span><span class="op">::</span><span class="dt">Expr</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    <span class="kw">if</span> <span class="cn">e</span>.args[<span class="fl">1</span>] <span class="op">==</span> <span class="op">:+</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>        println(<span class="st">&quot;A&quot;</span>)</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="kw">else</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>        println(<span class="st">&quot;B&quot;</span>)</span>
-<span id="cb9-6"><a href="#cb9-6"></a>    <span class="kw">end</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="kw">end</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="pp">@f</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">2</span>   <span class="co"># Prints &quot;A&quot;</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="pp">@f</span> <span class="fl">2</span> <span class="op">*</span> <span class="fl">2</span>   <span class="co"># Prints &quot;B&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">macro</span> f(<span class="cn">e</span><span class="op">::</span><span class="dt">Expr</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="cn">e</span>.args[<span class="fl">1</span>] <span class="op">==</span> <span class="op">:+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        println(<span class="st">&quot;A&quot;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">else</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        println(<span class="st">&quot;B&quot;</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="pp">@f</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">2</span>   <span class="co"># Prints &quot;A&quot;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="pp">@f</span> <span class="fl">2</span> <span class="op">*</span> <span class="fl">2</span>   <span class="co"># Prints &quot;B&quot;</span></span></code></pre></div>
 </section>
 <section id="manipolazione-di-espressioni" class="slide level1">
 <h1>Manipolazione di espressioni</h1>
@@ -331,13 +320,13 @@ julia&gt; eval(expression)
 <li><p>Calcolo esatto di derivate, integrali, etc.</p></li>
 <li><p>Machine learning (uno degli obbiettivi del LISP!)</p></li>
 <li><p>Definizione di costrutti nuovi per il linguaggio:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># See https://docs.juliaplots.org/latest/animations/</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a>…</span>
-<span id="cb12-4"><a href="#cb12-4"></a>anim <span class="op">=</span> <span class="pp">@animate</span> <span class="kw">for</span> i ∈ <span class="fl">1</span><span class="op">:</span>n</span>
-<span id="cb12-5"><a href="#cb12-5"></a>    circleplot(x<span class="op">,</span> y<span class="op">,</span> i)</span>
-<span id="cb12-6"><a href="#cb12-6"></a><span class="kw">end</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a>gif(anim<span class="op">,</span> <span class="st">&quot;anim_fps15.gif&quot;</span><span class="op">,</span> fps <span class="op">=</span> <span class="fl">15</span>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb12"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See https://docs.juliaplots.org/latest/animations/</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>…</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>anim <span class="op">=</span> <span class="pp">@animate</span> <span class="kw">for</span> i ∈ <span class="fl">1</span><span class="op">:</span>n</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    circleplot(x<span class="op">,</span> y<span class="op">,</span> i)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>gif(anim<span class="op">,</span> <span class="st">&quot;anim_fps15.gif&quot;</span><span class="op">,</span> fps <span class="op">=</span> <span class="fl">15</span>)</span></code></pre></div></li>
 </ul>
 </section>
 <section id="multiple-dispatch" class="slide level1">
@@ -366,29 +355,29 @@ julia&gt; eval(expression)
 </section>
 <section id="esempio-di-oop" class="slide level1">
 <h1>Esempio di OOP</h1>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">struct</span> FunzioneBase {</span>
-<span id="cb13-2"><a href="#cb13-2"></a>    <span class="kw">virtual</span> <span class="dt">double</span> Eval(<span class="dt">double</span> x) = <span class="dv">0</span>;</span>
-<span id="cb13-3"><a href="#cb13-3"></a>};</span>
-<span id="cb13-4"><a href="#cb13-4"></a></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="kw">struct</span> Seno : <span class="kw">public</span> FunzioneBase {</span>
-<span id="cb13-6"><a href="#cb13-6"></a>    <span class="kw">virtual</span> <span class="dt">double</span> Eval(<span class="dt">double</span> x) { <span class="cf">return</span> sin(x); }</span>
-<span id="cb13-7"><a href="#cb13-7"></a>};</span>
-<span id="cb13-8"><a href="#cb13-8"></a></span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="kw">struct</span> Coseno : <span class="kw">public</span> FunzioneBase {</span>
-<span id="cb13-10"><a href="#cb13-10"></a>    <span class="kw">virtual</span> <span class="dt">double</span> Eval(<span class="dt">double</span> x) { <span class="cf">return</span> cos(x); }</span>
-<span id="cb13-11"><a href="#cb13-11"></a>};</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> FunzioneBase {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="dt">double</span> Eval(<span class="dt">double</span> x) = <span class="dv">0</span>;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>};</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Seno : <span class="kw">public</span> FunzioneBase {</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="dt">double</span> Eval(<span class="dt">double</span> x) { <span class="cf">return</span> sin(x); }</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>};</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Coseno : <span class="kw">public</span> FunzioneBase {</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="dt">double</span> Eval(<span class="dt">double</span> x) { <span class="cf">return</span> cos(x); }</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
 </section>
 <section id="esempio-di-oop-1" class="slide level1">
 <h1>Esempio di OOP</h1>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="at">const</span> <span class="dt">char</span> *argv[]) {</span>
-<span id="cb14-2"><a href="#cb14-2"></a>    FunzioneBase *f = <span class="kw">nullptr</span>;</span>
-<span id="cb14-3"><a href="#cb14-3"></a>    <span class="cf">if</span> (argv[<span class="dv">1</span>] == <span class="st">&quot;0&quot;</span>) {</span>
-<span id="cb14-4"><a href="#cb14-4"></a>        f = <span class="kw">new</span> Seno();</span>
-<span id="cb14-5"><a href="#cb14-5"></a>    <span class="cf">else</span> {</span>
-<span id="cb14-6"><a href="#cb14-6"></a>        f = <span class="kw">new</span> Coseno();</span>
-<span id="cb14-7"><a href="#cb14-7"></a>    }</span>
-<span id="cb14-8"><a href="#cb14-8"></a>    <span class="bu">std::</span>cout &lt;&lt; f-&gt;Eval(<span class="fl">0.3</span>) &lt;&lt; <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
-<span id="cb14-9"><a href="#cb14-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="at">const</span> <span class="dt">char</span> *argv[]) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    FunzioneBase *f = <span class="kw">nullptr</span>;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (argv[<span class="dv">1</span>] == <span class="st">&quot;0&quot;</span>) {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        f = <span class="kw">new</span> Seno();</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> {</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        f = <span class="kw">new</span> Coseno();</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">std::</span>cout &lt;&lt; f-&gt;Eval(<span class="fl">0.3</span>) &lt;&lt; <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>;</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>In fase di compilazione, il compilatore non può sapere se verrà usato <code>Seno</code> o <code>Coseno</code>: questo viene deciso a <em>runtime</em>.</p>
 </section>
 <section id="ripasso-di-oop-1" class="slide level1">
@@ -410,14 +399,14 @@ julia&gt; eval(expression)
 <h1>Riusabilità del codice</h1>
 <ul>
 <li><p>Supponiamo di avere a disposizione una classe molto complessa, che calcola la temperatura di brillanza di una stella in una certa banda:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">struct</span> BrightnessTemperature : <span class="kw">public</span> FunzioneBase {</span>
-<span id="cb15-2"><a href="#cb15-2"></a>    BrightnessTemperature(<span class="bu">std::</span>string <span class="dt">spectral_type</span>);</span>
-<span id="cb15-3"><a href="#cb15-3"></a>    <span class="kw">virtual</span> <span class="dt">double</span> Eval(<span class="dt">double</span> frequency) {</span>
-<span id="cb15-4"><a href="#cb15-4"></a>        <span class="co">// Lots of code!</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>    }</span>
-<span id="cb15-6"><a href="#cb15-6"></a></span>
-<span id="cb15-7"><a href="#cb15-7"></a>    <span class="co">// …</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a>};</span></code></pre></div></li>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> BrightnessTemperature : <span class="kw">public</span> FunzioneBase {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    BrightnessTemperature(<span class="bu">std::</span>string <span class="dt">spectral_type</span>);</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">virtual</span> <span class="dt">double</span> Eval(<span class="dt">double</span> frequency) {</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Lots of code!</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// …</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div></li>
 <li><p>Questa libreria è installata sul sistema che stiamo usando, in una directory che non possiamo modificare (es., <code>/usr/lib</code>).</p></li>
 </ul>
 </section>
@@ -425,11 +414,11 @@ julia&gt; eval(expression)
 <h1>Riusabilità del codice</h1>
 <ul>
 <li><p>Supponiamo ora di aver definito una classe <code>UnitValue</code>, che implementa un tipo di dato numerico a cui è associata una unità di misura:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1"></a>UnitValue distance(<span class="fl">3.5</span>, <span class="st">&quot;m&quot;</span>);</span>
-<span id="cb16-2"><a href="#cb16-2"></a>UnitValue time(<span class="fl">1.3</span>, <span class="st">&quot;s&quot;</span>);</span>
-<span id="cb16-3"><a href="#cb16-3"></a></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="bu">std::</span>cout &lt;&lt; distance / (time * time); <span class="co">// Output &quot;2.07 m/s^2&quot;</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="bu">std::</span>cout &lt;&lt; distance + time;          <span class="co">// Print an error and stop</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>UnitValue distance(<span class="fl">3.5</span>, <span class="st">&quot;m&quot;</span>);</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>UnitValue time(<span class="fl">1.3</span>, <span class="st">&quot;s&quot;</span>);</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout &lt;&lt; distance / (time * time); <span class="co">// Output &quot;2.07 m/s^2&quot;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>cout &lt;&lt; distance + time;          <span class="co">// Print an error and stop</span></span></code></pre></div></li>
 <li><p>Non possiamo però passare un dato <code>UnitValue</code> a <code>BrightnessTemperature::Eval</code>, perché accetta solo <code>double</code>!</p></li>
 <li><p>E non possiamo modificare il file che definisce la classe, perché è in una directory di sola lettura!</p></li>
 </ul>
@@ -451,11 +440,11 @@ julia&gt; eval(expression)
 <ul>
 <li><p>Julia non implementa costrutti OOP: non esistono classi in Julia!</p></li>
 <li><p>Julia implementa il <em>multiple dispatch</em>:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1"></a>f(x<span class="op">::</span><span class="dt">Integer</span>) <span class="op">=</span> <span class="fl">2</span>x</span>
-<span id="cb17-2"><a href="#cb17-2"></a>f(x<span class="op">::</span><span class="dt">Real</span>) <span class="op">=</span> <span class="fl">3</span>x</span>
-<span id="cb17-3"><a href="#cb17-3"></a></span>
-<span id="cb17-4"><a href="#cb17-4"></a>println(f(<span class="fl">3</span>))     <span class="co"># Stampa 6</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>println(f(<span class="fl">3.0</span>))   <span class="co"># Stampa 9.0</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb17"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>f(x<span class="op">::</span><span class="dt">Integer</span>) <span class="op">=</span> <span class="fl">2</span>x</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>f(x<span class="op">::</span><span class="dt">Real</span>) <span class="op">=</span> <span class="fl">3</span>x</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>println(f(<span class="fl">3</span>))     <span class="co"># Stampa 6</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>println(f(<span class="fl">3.0</span>))   <span class="co"># Stampa 9.0</span></span></code></pre></div></li>
 <li><p>Come l’overloading, si possono definire funzioni con lo stesso nome che accettano tipi diversi (impossibile in Python!)</p></li>
 <li><p>Come le funzioni virtuali, la funzione da chiamare è decisa a runtime</p></li>
 </ul>
@@ -464,7 +453,7 @@ julia&gt; eval(expression)
 <h1>Single e multiple dispatch</h1>
 <ul>
 <li><p>Per decidere quale funzione virtuale chiamare nella sintassi</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1"></a>f-&gt;Eval(x);</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>f-&gt;Eval(x);</span></code></pre></div>
 <p>il C++ si basa sul <em>solo</em> tipo di <code>f</code> (<em>single dispatch</em>)</p></li>
 <li><p>Nel multiple dispatch, <em>tutti</em> i tipi degli argomenti di una funzione <code>f(a, b, …)</code> sono usati da Julia per capire quale tipo chiamare</p></li>
 <li><p>Vediamo un esempio</p></li>
@@ -473,15 +462,15 @@ julia&gt; eval(expression)
 <section id="morra-cinese" class="slide level1">
 <h1>Morra cinese</h1>
 <p>Codice preso da <a href="https://giordano.github.io/blog/2017-11-03-rock-paper-scissors/">giordano.github.io/blog/2017-11-03-rock-paper-scissors</a></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">abstract type</span> Shape <span class="kw">end</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="kw">struct</span> Rock     <span class="op">&lt;:</span> Shape <span class="kw">end</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="kw">struct</span> Paper    <span class="op">&lt;:</span> Shape <span class="kw">end</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="kw">struct</span> Scissors <span class="op">&lt;:</span> Shape <span class="kw">end</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>play(<span class="op">::</span><span class="dt">Type</span>{Paper}<span class="op">,</span> <span class="op">::</span><span class="dt">Type</span>{Rock})     <span class="op">=</span> <span class="st">&quot;Paper wins&quot;</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a>play(<span class="op">::</span><span class="dt">Type</span>{Paper}<span class="op">,</span> <span class="op">::</span><span class="dt">Type</span>{Scissors}) <span class="op">=</span> <span class="st">&quot;Scissors wins&quot;</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a>play(<span class="op">::</span><span class="dt">Type</span>{Rock}<span class="op">,</span>  <span class="op">::</span><span class="dt">Type</span>{Scissors}) <span class="op">=</span> <span class="st">&quot;Rock wins&quot;</span></span>
-<span id="cb19-8"><a href="#cb19-8"></a>play(<span class="op">::</span><span class="dt">Type</span>{T}<span class="op">,</span>     <span class="op">::</span><span class="dt">Type</span>{T}) <span class="kw">where</span> {T<span class="op">&lt;:</span> Shape} <span class="op">=</span> <span class="st">&quot;Tie, try again&quot;</span></span>
-<span id="cb19-9"><a href="#cb19-9"></a>play(a<span class="op">::</span><span class="dt">Type</span>{<span class="op">&lt;:</span>Shape}<span class="op">,</span> b<span class="op">::</span><span class="dt">Type</span>{<span class="op">&lt;:</span>Shape}) <span class="op">=</span> play(b<span class="op">,</span> a) <span class="co"># Commutativity</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">abstract type</span> Shape <span class="kw">end</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Rock     <span class="op">&lt;:</span> Shape <span class="kw">end</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Paper    <span class="op">&lt;:</span> Shape <span class="kw">end</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Scissors <span class="op">&lt;:</span> Shape <span class="kw">end</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>play(<span class="op">::</span><span class="dt">Type</span>{Paper}<span class="op">,</span> <span class="op">::</span><span class="dt">Type</span>{Rock})     <span class="op">=</span> <span class="st">&quot;Paper wins&quot;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>play(<span class="op">::</span><span class="dt">Type</span>{Paper}<span class="op">,</span> <span class="op">::</span><span class="dt">Type</span>{Scissors}) <span class="op">=</span> <span class="st">&quot;Scissors wins&quot;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>play(<span class="op">::</span><span class="dt">Type</span>{Rock}<span class="op">,</span>  <span class="op">::</span><span class="dt">Type</span>{Scissors}) <span class="op">=</span> <span class="st">&quot;Rock wins&quot;</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>play(<span class="op">::</span><span class="dt">Type</span>{T}<span class="op">,</span>     <span class="op">::</span><span class="dt">Type</span>{T}) <span class="kw">where</span> {T<span class="op">&lt;:</span> Shape} <span class="op">=</span> <span class="st">&quot;Tie, try again&quot;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>play(a<span class="op">::</span><span class="dt">Type</span>{<span class="op">&lt;:</span>Shape}<span class="op">,</span> b<span class="op">::</span><span class="dt">Type</span>{<span class="op">&lt;:</span>Shape}) <span class="op">=</span> play(b<span class="op">,</span> a) <span class="co"># Commutativity</span></span></code></pre></div>
 </section>
 <section id="partita" class="slide level1">
 <h1>Partita</h1>
@@ -501,37 +490,37 @@ julia&gt; play(Rock, Paper)
 <section id="il-pacchetto-cosmology" class="slide level1">
 <h1>Il pacchetto <code>Cosmology</code></h1>
 <p>Installiamo e usiamo il pacchetto <code>Cosmology</code>, che implementa alcuni calcoli basati sulle equazioni di Friedmann-Lemaître:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1"></a>julia<span class="op">&gt;</span> <span class="kw">import</span> Pkg<span class="op">;</span> Pkg.add(<span class="st">&quot;Cosmology&quot;</span>)<span class="op">;</span> <span class="kw">import</span> Cosmology</span>
-<span id="cb21-2"><a href="#cb21-2"></a></span>
-<span id="cb21-3"><a href="#cb21-3"></a>julia<span class="op">&gt;</span> c <span class="op">=</span> Cosmology.cosmology()</span>
-<span id="cb21-4"><a href="#cb21-4"></a>Cosmology.FlatLCDM{<span class="dt">Float64</span>}(<span class="fl">0.69</span><span class="op">,</span> <span class="fl">0.7099</span><span class="op">,</span> <span class="fl">0.29</span><span class="op">,</span> <span class="fl">8.780e-5</span>)</span>
-<span id="cb21-5"><a href="#cb21-5"></a></span>
-<span id="cb21-6"><a href="#cb21-6"></a>julia<span class="op">&gt;</span> z <span class="op">=</span> <span class="fl">0.1</span>    <span class="co"># Redshift</span></span>
-<span id="cb21-7"><a href="#cb21-7"></a></span>
-<span id="cb21-8"><a href="#cb21-8"></a>julia<span class="op">&gt;</span> Cosmology.age_gyr(c<span class="op">,</span> z)   <span class="co"># Age of the Universe at z = 0.1</span></span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="fl">12.465336269441773</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> <span class="kw">import</span> Pkg<span class="op">;</span> Pkg.add(<span class="st">&quot;Cosmology&quot;</span>)<span class="op">;</span> <span class="kw">import</span> Cosmology</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> c <span class="op">=</span> Cosmology.cosmology()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>Cosmology.FlatLCDM{<span class="dt">Float64</span>}(<span class="fl">0.69</span><span class="op">,</span> <span class="fl">0.7099</span><span class="op">,</span> <span class="fl">0.29</span><span class="op">,</span> <span class="fl">8.780e-5</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> z <span class="op">=</span> <span class="fl">0.1</span>    <span class="co"># Redshift</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>julia<span class="op">&gt;</span> Cosmology.age_gyr(c<span class="op">,</span> z)   <span class="co"># Age of the Universe at z = 0.1</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fl">12.465336269441773</span></span></code></pre></div>
 </section>
 <section id="il-pacchetto-measurements" class="slide level1">
 <h1>Il pacchetto <code>Measurements</code></h1>
 <p>Esiste un utile pacchetto, <code>Measurements</code>, che associa a valori delle barre di errore. Implementa l’operatore <code>±</code> (come <code>⊕</code> nel nostro esempio sopra) per rendere la notazione più agile da scrivere e da leggere:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1"></a>Pkg.add(<span class="st">&quot;Measurements&quot;</span>)</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="kw">using</span> Measurements</span>
-<span id="cb22-3"><a href="#cb22-3"></a></span>
-<span id="cb22-4"><a href="#cb22-4"></a>x <span class="op">=</span> <span class="fl">1.0</span> ± <span class="fl">0.5</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>y <span class="op">=</span> <span class="fl">3.0</span> ± <span class="fl">0.3</span></span>
-<span id="cb22-6"><a href="#cb22-6"></a>println(x <span class="op">*</span> y)  <span class="co"># Stampa 3.0 ± 1.5297058540778354</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Pkg.add(<span class="st">&quot;Measurements&quot;</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Measurements</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1.0</span> ± <span class="fl">0.5</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">3.0</span> ± <span class="fl">0.3</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>println(x <span class="op">*</span> y)  <span class="co"># Stampa 3.0 ± 1.5297058540778354</span></span></code></pre></div>
 </section>
 <section id="il-pacchetto-measurements-1" class="slide level1">
 <h1>Il pacchetto <code>Measurements</code></h1>
 <p>Il pacchetto è in grado di tenere traccia di cancellazioni degli errori:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1"></a>x <span class="op">=</span> <span class="fl">1.0</span> ± <span class="fl">0.5</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>y <span class="op">=</span> <span class="fl">1.0</span> ± <span class="fl">0.5</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a></span>
-<span id="cb23-4"><a href="#cb23-4"></a>println(x <span class="op">-</span> y) <span class="co"># Stampa 0.0 ± 0.7071067811865476</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>println(x <span class="op">-</span> x) <span class="co"># Stampa 0.0 ± 0.0</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a></span>
-<span id="cb23-7"><a href="#cb23-7"></a>println(x <span class="op">/</span> y) <span class="co"># Stampa 1.0 ± 0.7071067811865476</span></span>
-<span id="cb23-8"><a href="#cb23-8"></a>println(x <span class="op">/</span> x) <span class="co"># Stampa 1.0 ± 0.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">1.0</span> ± <span class="fl">0.5</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">1.0</span> ± <span class="fl">0.5</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>println(x <span class="op">-</span> y) <span class="co"># Stampa 0.0 ± 0.7071067811865476</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>println(x <span class="op">-</span> x) <span class="co"># Stampa 0.0 ± 0.0</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>println(x <span class="op">/</span> y) <span class="co"># Stampa 1.0 ± 0.7071067811865476</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>println(x <span class="op">/</span> x) <span class="co"># Stampa 1.0 ± 0.0</span></span></code></pre></div>
 </section>
 <section id="cosmology-measurements" class="slide level1">
 <h1><code>Cosmology</code> + <code>Measurements</code></h1>
@@ -551,7 +540,7 @@ julia&gt; Cosmology.age_gyr(c, z)
 <ul>
 <li><p>Julia consente di definire strutture <em>derivate</em> (come le classi derivate in C++)</p></li>
 <li><p>Ma un tipo primitivo, in Julia, deve essere astratto e non avere elementi:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">abstract type</span> MyType <span class="kw">end</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb25"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">abstract type</span> MyType <span class="kw">end</span></span></code></pre></div></li>
 <li><p>Sembra una limitazione grave, ma in realtà è segno di un diverso approccio rispetto alla programmazione OOP del C++</p></li>
 </ul>
 </section>
@@ -559,15 +548,15 @@ julia&gt; Cosmology.age_gyr(c, z)
 <h1>Gerarchia di tipi in Julia</h1>
 <ul>
 <li><p>Alcuni esempi di tipi astratti definiti in Julia:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># This list is not exhaustive!</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="kw">abstract type</span> <span class="dt">Number</span> <span class="kw">end</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="kw">abstract type</span> <span class="dt">Real</span>     <span class="op">&lt;:</span> <span class="dt">Number</span> <span class="kw">end</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="kw">abstract type</span> <span class="dt">AbstractFloat</span> <span class="op">&lt;:</span> <span class="dt">Real</span> <span class="kw">end</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="kw">abstract type</span> <span class="dt">Integer</span>  <span class="op">&lt;:</span> <span class="dt">Real</span> <span class="kw">end</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb26"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This list is not exhaustive!</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">abstract type</span> <span class="dt">Number</span> <span class="kw">end</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">abstract type</span> <span class="dt">Real</span>     <span class="op">&lt;:</span> <span class="dt">Number</span> <span class="kw">end</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="kw">abstract type</span> <span class="dt">AbstractFloat</span> <span class="op">&lt;:</span> <span class="dt">Real</span> <span class="kw">end</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="kw">abstract type</span> <span class="dt">Integer</span>  <span class="op">&lt;:</span> <span class="dt">Real</span> <span class="kw">end</span></span></code></pre></div></li>
 <li><p>I tipi di dati concreti (<code>Int64</code>, <code>Float32</code>) derivano da uno di questi tipi astratti</p></li>
 <li><p>Si possono specializzare funzioni come si vuole:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1"></a>f(x<span class="op">::</span><span class="dt">Integer</span>) <span class="op">=</span> <span class="fl">2</span>x</span>
-<span id="cb27-2"><a href="#cb27-2"></a>f(x<span class="op">::</span><span class="dt">Real</span>) <span class="op">=</span> <span class="fl">3</span>x</span></code></pre></div></li>
+<div class="sourceCode" id="cb27"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>f(x<span class="op">::</span><span class="dt">Integer</span>) <span class="op">=</span> <span class="fl">2</span>x</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>f(x<span class="op">::</span><span class="dt">Real</span>) <span class="op">=</span> <span class="fl">3</span>x</span></code></pre></div></li>
 </ul>
 </section>
 <section id="altro-esempio-flags" class="slide level1">
@@ -576,7 +565,7 @@ julia&gt; Cosmology.age_gyr(c, z)
 <li><p>Ho sviluppato un pacchetto, <a href="https://github.com/ziotom78/Harlequin.jl">Harlequin.jl</a>, per la simulazione dell’acquisizione dei dati di esperimenti spaziali di cosmologia</p></li>
 <li><p>È necessario simulare in queste missioni il concetto di «flag», un codice associato a ciascuna delle misure fatte dall’esperimento (migliaia di miliardi) durante la sua vita che dica se il dato può essere usato oppure no.</p></li>
 <li><p>Il vettore dei flag è formato da molti numeri ripetuti:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1"></a>flag <span class="op">=</span> [<span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> …<span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> …]</span></code></pre></div></li>
+<div class="sourceCode" id="cb28"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>flag <span class="op">=</span> [<span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> …<span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span> …]</span></code></pre></div></li>
 </ul>
 </section>
 <section id="sequenze-ripetute" class="slide level1">
@@ -584,28 +573,28 @@ julia&gt; Cosmology.age_gyr(c, z)
 <ul>
 <li><p>È dispendioso tenere in memoria un vettore come <code>flag</code></p></li>
 <li><p>Ho implementato un nuovo tipo di dato, <a href="https://github.com/ziotom78/RunLengthArrays.jl/"><code>RunLengthArray</code></a>, che mantiene in memoria una sequenza di coppie <code>(valore,ripetizioni)</code>:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">using</span> RunLengthArrays</span>
-<span id="cb29-2"><a href="#cb29-2"></a></span>
-<span id="cb29-3"><a href="#cb29-3"></a>flag <span class="op">=</span> RunLengthArray{<span class="dt">Int</span><span class="op">,</span><span class="dt">Float64</span>}(</span>
-<span id="cb29-4"><a href="#cb29-4"></a>    [<span class="fl">101523</span><span class="op">,</span> <span class="fl">2</span><span class="op">,</span> <span class="fl">431363</span>]<span class="op">,</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a>    [<span class="fl">1</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span>]<span class="op">,</span></span>
-<span id="cb29-6"><a href="#cb29-6"></a>)</span>
-<span id="cb29-7"><a href="#cb29-7"></a></span>
-<span id="cb29-8"><a href="#cb29-8"></a>println(values(flag))   <span class="co"># Print [1, 0, 1]</span></span>
-<span id="cb29-9"><a href="#cb29-9"></a>println(runs(flag))     <span class="co"># Print [101523, 2, 431363]</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb29"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> RunLengthArrays</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>flag <span class="op">=</span> RunLengthArray{<span class="dt">Int</span><span class="op">,</span><span class="dt">Float64</span>}(</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">101523</span><span class="op">,</span> <span class="fl">2</span><span class="op">,</span> <span class="fl">431363</span>]<span class="op">,</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    [<span class="fl">1</span><span class="op">,</span> <span class="fl">0</span><span class="op">,</span> <span class="fl">1</span>]<span class="op">,</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>println(values(flag))   <span class="co"># Print [1, 0, 1]</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>println(runs(flag))     <span class="co"># Print [101523, 2, 431363]</span></span></code></pre></div></li>
 </ul>
 </section>
 <section id="sequenze-ripetute-1" class="slide level1">
 <h1>Sequenze ripetute</h1>
 <ul>
 <li><p>Il tipo <code>RunLengthArray</code> si comporta però esattamente come un array, e può essere usato con qualsiasi funzione Julia:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1"></a>println(minimum(flag))   <span class="co"># Stampa 0</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb30"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>println(minimum(flag))   <span class="co"># Stampa 0</span></span></code></pre></div></li>
 <li><p>Ho definito specializzazioni per quelle funzioni Julia che possono essere calcolate rapidamente:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Quickly calculate the length by adding the number of repetitions</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="bu">Base</span>.length(arr<span class="op">::</span>RunLengthArray{N<span class="op">,</span>T}) <span class="kw">where</span> {N<span class="op">,</span>T} <span class="op">=</span> sum(arr.runs)</span>
-<span id="cb31-3"><a href="#cb31-3"></a></span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="co"># Quickly find the minimum value</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="bu">Base</span>.minimum(arr<span class="op">::</span>RunLengthArray{N<span class="op">,</span>T}) <span class="kw">where</span> {N<span class="op">,</span>T} <span class="op">=</span> minimum(arr.values)</span></code></pre></div></li>
+<div class="sourceCode" id="cb31"><pre class="sourceCode julia"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quickly calculate the length by adding the number of repetitions</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Base</span>.length(arr<span class="op">::</span>RunLengthArray{N<span class="op">,</span>T}) <span class="kw">where</span> {N<span class="op">,</span>T} <span class="op">=</span> sum(arr.runs)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Quickly find the minimum value</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Base</span>.minimum(arr<span class="op">::</span>RunLengthArray{N<span class="op">,</span>T}) <span class="kw">where</span> {N<span class="op">,</span>T} <span class="op">=</span> minimum(arr.values)</span></code></pre></div></li>
 </ul>
 </section>
 <section id="altri-esempi" class="slide level1">
@@ -646,15 +635,15 @@ julia&gt; Cosmology.age_gyr(c, z)
 </section>
 <section id="esempio-di-codice-rust" class="slide level1">
 <h1>Esempio di codice Rust</h1>
-<div class="sourceCode" id="cb32"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb32-1"><a href="#cb32-1"></a><span class="kw">fn</span> factorial(n<span class="op">:</span> <span class="dt">u64</span>) <span class="op">-&gt;</span> <span class="dt">u64</span> <span class="op">{</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>    (<span class="dv">1</span><span class="op">..=</span>n)<span class="op">.</span>product()</span>
-<span id="cb32-3"><a href="#cb32-3"></a><span class="op">}</span></span>
-<span id="cb32-4"><a href="#cb32-4"></a> </span>
-<span id="cb32-5"><a href="#cb32-5"></a><span class="kw">fn</span> main () <span class="op">{</span></span>
-<span id="cb32-6"><a href="#cb32-6"></a>    <span class="kw">for</span> i <span class="kw">in</span> <span class="dv">1</span><span class="op">..</span><span class="dv">10</span> <span class="op">{</span></span>
-<span id="cb32-7"><a href="#cb32-7"></a>        <span class="pp">println!</span>(<span class="st">&quot;{}&quot;</span><span class="op">,</span> factorial(i))</span>
-<span id="cb32-8"><a href="#cb32-8"></a>    <span class="op">}</span></span>
-<span id="cb32-9"><a href="#cb32-9"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> factorial(n<span class="op">:</span> <span class="dt">u64</span>) <span class="op">-&gt;</span> <span class="dt">u64</span> <span class="op">{</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span><span class="op">..=</span>n)<span class="op">.</span>product()</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="kw">fn</span> main () <span class="op">{</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> i <span class="kw">in</span> <span class="dv">1</span><span class="op">..</span><span class="dv">10</span> <span class="op">{</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>        <span class="pp">println!</span>(<span class="st">&quot;{}&quot;</span><span class="op">,</span> factorial(i))</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </section>
 <section id="nim" class="slide level1">
 <h1>Nim</h1>
@@ -676,29 +665,34 @@ julia&gt; Cosmology.age_gyr(c, z)
 </section>
 <section id="esempio-di-codice-nim" class="slide level1">
 <h1>Esempio di codice Nim</h1>
-<pre class="nim"><code>import complex
-
-func julia(z: Complex64, c: Complex64, maxiter: int = 256): int =
-    var iteridx = 0
-    var cur_z = z;
-    while (abs2(cur_z) &lt; 4) and (iteridx &lt; maxiter):
-        cur_z = cur_z * cur_z + c
-        iteridx += 1
-
-    if iteridx == maxiter:
-        return -1
-    else:
-        return iteridx</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode nim"><code class="sourceCode nim"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> complex</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">func</span> <span class="st">julia</span><span class="kw">(</span>z<span class="kw">:</span> <span class="at">Complex64</span><span class="kw">,</span> c<span class="kw">:</span> <span class="at">Complex64</span><span class="kw">,</span> maxiter<span class="kw">:</span> <span class="at">int</span> <span class="co">=</span> <span class="dv">256</span><span class="kw">):</span> <span class="at">int</span> <span class="co">=</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> iteridx <span class="co">=</span> <span class="dv">0</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> cur_z <span class="co">=</span> z<span class="kw">;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">(</span><span class="fu">abs2</span><span class="kw">(</span>cur_z<span class="kw">)</span> <span class="co">&lt;</span> <span class="dv">4</span><span class="kw">)</span> <span class="co">and</span> <span class="kw">(</span>iteridx <span class="co">&lt;</span> maxiter<span class="kw">):</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>        cur_z <span class="co">=</span> cur_z <span class="co">*</span> cur_z <span class="co">+</span> c</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        iteridx <span class="co">+=</span> <span class="dv">1</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> iteridx <span class="co">==</span> maxiter<span class="kw">:</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="co">-</span><span class="dv">1</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span><span class="kw">:</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> iteridx</span></code></pre></div>
 </section>
     </div>
   </div>
 
-  <script src="https://revealjs.com/js/reveal.js"></script>
+  <script src="https://revealjs.com/dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://revealjs.com/plugin/notes/notes.js"></script>
+  <script src="https://revealjs.com/plugin/search/search.js"></script>
+  <script src="https://revealjs.com/plugin/zoom/zoom.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
+      // https://revealjs.com/config/
       Reveal.initialize({
         // Push each slide change to the browser history
         history: true,
@@ -708,11 +702,11 @@ func julia(z: Complex64, c: Complex64, maxiter: int = 256): int =
         width: 1440,
         height: 810,
 
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: 'https://revealjs.com/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'https://revealjs.com/plugin/zoom-js/zoom.js', async: true },
-          { src: 'https://revealjs.com/plugin/notes/notes.js', async: true }
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
       });
     </script>
